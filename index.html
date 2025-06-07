@@ -1085,354 +1085,97 @@
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-<script>
-// Configuración
-const SERVER_URL = window.location.hostname.includes('localhost')
-  ? 'http://localhost:3000'
-  : 'https://porfolioweb-production.up.railway.app';
-
-
-// Función para probar el servidor
-async function testServerConnection() {
-    try {
-        const response = await fetch(`${SERVER_URL}/api/test`);
-        const data = await response.json();
-        console.log('✅ Servidor conectado:', data);
-        
-        // Mostrar estado del email en consola
-        if (data.emailConfigured) {
-            console.log('📧 Configuración de email: ✅ Correcta');
-        } else {
-            console.warn('⚠️ Configuración de email: ❌ Faltante');
-        }
-        
-        return true;
-    } catch (error) {
-        console.error('❌ Error conectando al servidor:', error);
-        showErrorMessage('⚠️ Servidor no disponible');
-        return false;
-    }
-}
-
-// Función mejorada para enviar el formulario
-async function enviarFormulario(formData) {
-    try {
-        console.log('📤 Enviando datos:', {
-            ...formData,
-            'g-recaptcha-response': formData['g-recaptcha-response'] ? '✓ Token presente' : '✗ Sin token'
-        });
-        
-        const response = await fetch(`${SERVER_URL}/api/contact`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-
-        console.log('📡 Respuesta status:', response.status);
-        console.log('📡 Respuesta ok:', response.ok);
-
-        // Leer la respuesta como texto primero
-        const responseText = await response.text();
-        console.log('📡 Respuesta texto:', responseText);
-
-        // Si hay contenido, parsearlo como JSON
-        let result = {};
-        if (responseText) {
-            try {
-                result = JSON.parse(responseText);
-            } catch (parseError) {
-                console.error('❌ Error parsing JSON:', parseError);
-                result = { error: 'Respuesta inválida del servidor', raw: responseText };
-            }
-        }
-
-        if (response.ok) {
-            console.log('✅ Correo enviado exitosamente:', result);
-            showSuccessMessage('✅ ¡Mensaje enviado correctamente! Te responderemos pronto.');
-            return result;
-        } else {
-            console.error('❌ Error del servidor:', result);
-            
-            // Mensajes de error más específicos
-            let errorMessage = result.error || 'Error al enviar el mensaje';
-            if (response.status === 429) {
-                errorMessage = 'Demasiados intentos. Espera unos minutos e inténtalo de nuevo.';
-            } else if (response.status === 400) {
-                errorMessage = result.error || 'Datos del formulario inválidos';
-            } else if (response.status === 500) {
-                errorMessage = 'Error del servidor. Inténtalo más tarde.';
-            }
-            
-            showErrorMessage(`❌ ${errorMessage}`);
-            throw new Error(errorMessage);
-        }
-
-    } catch (error) {
-        console.error('❌ Error completo:', error);
-        
-        if (error.name === 'TypeError' && error.message.includes('fetch')) {
-            showErrorMessage('❌ Error de conexión. Verifica que el servidor esté funcionando.');
-        } else if (!error.message.includes('❌')) {
-            showErrorMessage('❌ Error inesperado. Inténtalo de nuevo.');
-        }
-        throw error;
-    }
-}
-
-// Función para mostrar mensajes de éxito
-function showSuccessMessage(message) {
-    removeMessages();
-    
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'alert alert-success';
-    messageDiv.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #d1edff;
-        color: #0c5460;
-        padding: 15px 20px;
-        border: 1px solid #bee5eb;
-        border-radius: 8px;
-        z-index: 9999;
-        max-width: 400px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        font-weight: 500;
-        animation: slideIn 0.3s ease-out;
-    `;
-    messageDiv.innerHTML = `
-        <div style="display: flex; align-items: center;">
-            <span style="margin-right: 8px;">✅</span>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    document.body.appendChild(messageDiv);
-    
-    // Remover después de 6 segundos
-    setTimeout(() => {
-        if (messageDiv.parentNode) {
-            messageDiv.style.animation = 'slideOut 0.3s ease-in';
-            setTimeout(() => {
-                if (messageDiv.parentNode) {
-                    messageDiv.parentNode.removeChild(messageDiv);
-                }
-            }, 300);
-        }
-    }, 6000);
-}
-
-// Función para mostrar mensajes de error
-function showErrorMessage(message) {
-    removeMessages();
-    
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'alert alert-error';
-    messageDiv.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #f8d7da;
-        color: #721c24;
-        padding: 15px 20px;
-        border: 1px solid #f5c6cb;
-        border-radius: 8px;
-        z-index: 9999;
-        max-width: 400px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        font-weight: 500;
-        animation: slideIn 0.3s ease-out;
-    `;
-    messageDiv.innerHTML = `
-        <div style="display: flex; align-items: center;">
-            <span style="margin-right: 8px;">❌</span>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    document.body.appendChild(messageDiv);
-    
-    // Remover después de 8 segundos
-    setTimeout(() => {
-        if (messageDiv.parentNode) {
-            messageDiv.style.animation = 'slideOut 0.3s ease-in';
-            setTimeout(() => {
-                if (messageDiv.parentNode) {
-                    messageDiv.parentNode.removeChild(messageDiv);
-                }
-            }, 300);
-        }
-    }, 8000);
-}
-
-// Función para remover mensajes anteriores
-function removeMessages() {
-    const alerts = document.querySelectorAll('.alert');
-    alerts.forEach(alert => {
-        if (alert.parentNode) {
-            alert.parentNode.removeChild(alert);
-        }
-    });
-}
-
-// Función para validar reCAPTCHA
-function validateRecaptcha() {
-    if (typeof grecaptcha !== 'undefined') {
-        const response = grecaptcha.getResponse();
-        if (!response) {
-            showErrorMessage('❌ Por favor completa la verificación reCAPTCHA');
-            return null;
-        }
-        return response;
-    } else {
-        console.warn('⚠️ reCAPTCHA no cargado. Usando token de desarrollo.');
-        return 'TEST_TOKEN';
-    }
-}
-
-// Función para validar email
-function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Inicialización del formulario
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Inicializando formulario de contacto...');
-    
-    // Probar conexión al cargar la página (después de 1 segundo)
-    setTimeout(testServerConnection, 1000);
-    
-    // Agregar estilos para animaciones
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Manejar envío del formulario
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            console.log('📝 Procesando envío del formulario...');
-            
-            // Validar reCAPTCHA primero
-            const recaptchaResponse = validateRecaptcha();
-            if (recaptchaResponse === null) {
-                return; // Error ya mostrado
-            }
-            
-            // Obtener datos del formulario
-            const formData = {
-                name: document.getElementById('name')?.value?.trim() || '',
-                email: document.getElementById('email')?.value?.trim() || '',
-                message: document.getElementById('message')?.value?.trim() || '',
-                'g-recaptcha-response': recaptchaResponse
-            };
-            
-            // Validación básica
-            if (!formData.name || !formData.email || !formData.message) {
-                showErrorMessage('❌ Por favor completa todos los campos obligatorios');
-                return;
-            }
-            
-            // Validar email
-            if (!validateEmail(formData.email)) {
-                showErrorMessage('❌ Por favor ingresa un email válido');
-                return;
-            }
-            
-            // Validar longitud del mensaje
-            if (formData.message.length < 10) {
-                showErrorMessage('❌ El mensaje debe tener al menos 10 caracteres');
-                return;
-            }
-            
-            try {
-                // Deshabilitar botón de envío
-                const submitButton = this.querySelector('button[type="submit"]');
-                const originalText = submitButton?.textContent || 'Enviar Mensaje';
-                
-                if (submitButton) {
-                    submitButton.disabled = true;
-                    submitButton.style.opacity = '0.7';
-                    submitButton.innerHTML = `
-                        <span>Enviando...</span>
-                        <div style="display: inline-block; margin-left: 8px; width: 16px; height: 16px; border: 2px solid #fff; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                    `;
-                }
-                
-                // Agregar animación de spinner
-                const spinStyle = document.createElement('style');
-                spinStyle.textContent = `
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                `;
-                document.head.appendChild(spinStyle);
-                
-                await enviarFormulario(formData);
-                
-                // Limpiar formulario en caso de éxito
-                this.reset();
-                if (typeof grecaptcha !== 'undefined') {
-                    grecaptcha.reset();
-                }
-                
-                console.log('✅ Formulario enviado y limpiado exitosamente');
-                
-            } catch (error) {
-                console.error('❌ Error en el envío:', error);
-                
-                // Reset reCAPTCHA en caso de error
-                if (typeof grecaptcha !== 'undefined') {
-                    grecaptcha.reset();
-                }
-            } finally {
-                // Rehabilitar botón
-                const submitButton = this.querySelector('button[type="submit"]');
-                if (submitButton) {
-                    submitButton.disabled = false;
-                    submitButton.style.opacity = '1';
-                    submitButton.textContent = originalText;
-                }
-            }
-        });
-        
-        console.log('✅ Event listener del formulario configurado');
-    } else {
-        console.error('❌ No se encontró el formulario con ID "contact-form"');
-        console.log('💡 Verifica que tu HTML tenga: <form id="contact-form">');
-    }
-});
-
-// Funciones de callback para reCAPTCHA (opcionales)
-function onRecaptchaLoad() {
-    console.log('✅ reCAPTCHA cargado correctamente');
-}
-
-function onRecaptchaComplete(token) {
-    console.log('✅ reCAPTCHA completado exitosamente');
-}
-
-function onRecaptchaExpire() {
-    console.warn('⚠️ reCAPTCHA expirado - solicitando nueva verificación');
-    showErrorMessage('⚠️ La verificación reCAPTCHA ha expirado. Por favor complétala nuevamente.');
-}
-</script>
 
 <script src="js/lang.js" defer></script>
+
+<!-- <script>
+   document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const resultDiv = document.getElementById('result');
+    const currentLang = document.documentElement.lang || 'es';
+    const t = translations[currentLang];
+
+    // Validar elementos
+    if (!submitBtn || !resultDiv) {
+      console.error('Elementos del formulario no encontrados');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+
+    try {
+      // Verificar reCAPTCHA
+      if (typeof grecaptcha === 'undefined') {
+        throw new Error(t.formError);
+      }
+
+      const token = grecaptcha.getResponse();
+      if (!token) {
+        throw new Error('Por favor completa el reCAPTCHA');
+      }
+
+      // Obtener datos del formulario
+      const formData = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone')?.value.trim() || '',
+        message: document.getElementById('message').value.trim(),
+        'g-recaptcha-response': token
+      };
+
+      // Validación
+      if (!formData.name || !formData.email || !formData.message) {
+        throw new Error('Nombre, email y mensaje son requeridos');
+      }
+
+      // Enviar al backend
+      const response = await fetch('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      // Manejar respuesta
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || t.formError);
+      }
+
+      const data = await response.json();
+      
+      // Mostrar resultado
+      resultDiv.innerHTML = `<div class="alert alert-success">${t.formSuccess}</div>`;
+      contactForm.reset();
+      
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.reset();
+      }
+
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      resultDiv.innerHTML = `<div class="alert alert-danger">${error.message || t.formError}</div>`;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = t.formButton;
+      
+      // Ocultar mensaje después de 5 segundos
+      setTimeout(() => {
+        resultDiv.innerHTML = '';
+      }, 5000);
+    }
+  });
+});
+</script> -->
+
+
 </body>
 </html>

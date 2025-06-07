@@ -230,32 +230,64 @@ function showLanguageNotification(lang) {
 }
 
 
-// Manejar envío del formulario
+// Reemplaza todo el código del event listener submit con esto:
 document.getElementById('contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   
   const form = e.target;
   const submitBtn = form.querySelector('button[type="submit"]');
   const resultDiv = document.getElementById('result');
+  const currentLang = document.documentElement.lang || 'es';
+  const t = translations[currentLang];
   
   // Deshabilitar botón para evitar múltiples envíos
   submitBtn.disabled = true;
   submitBtn.textContent = 'Enviando...';
   
   try {
-    const formData = new FormData(form);
-    const response = await fetch('/api/contact', {
+    // Verificar reCAPTCHA
+    if (typeof grecaptcha === 'undefined') {
+      throw new Error('reCAPTCHA no está cargado');
+    }
+    
+    const token = grecaptcha.getResponse();
+    if (!token) {
+      throw new Error('Por favor completa el reCAPTCHA');
+    }
+
+    // Obtener datos del formulario
+    const formData = {
+      name: form.querySelector('#name').value.trim(),
+      email: form.querySelector('#email').value.trim(),
+      phone: form.querySelector('#phone')?.value.trim() || '',
+      message: form.querySelector('#message').value.trim(),
+      'g-recaptcha-response': token
+    };
+
+    // Validación básica
+    if (!formData.name || !formData.email || !formData.message) {
+      throw new Error('Nombre, email y mensaje son requeridos');
+    }
+
+    // URL ABSOLUTA al backend - ¡IMPORTANTE!
+    const response = await fetch('http://localhost:3000/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(Object.fromEntries(formData))
+      body: JSON.stringify(formData)
     });
     
+    // Manejar respuesta
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || t.formError);
+    }
+
     const data = await response.json();
     
     if (data.success) {
-      resultDiv.innerHTML = `<div class="alert alert-success">${translations[document.documentElement.lang].formSuccess}</div>`;
+      resultDiv.innerHTML = `<div class="alert alert-success">${t.formSuccess}</div>`;
       form.reset();
       
       // Resetear reCAPTCHA
@@ -263,14 +295,14 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
         grecaptcha.reset();
       }
     } else {
-      resultDiv.innerHTML = `<div class="alert alert-danger">${data.error || translations[document.documentElement.lang].formError}</div>`;
+      throw new Error(data.error || t.formError);
     }
   } catch (error) {
     console.error('Error:', error);
-    resultDiv.innerHTML = `<div class="alert alert-danger">${translations[document.documentElement.lang].formError}</div>`;
+    resultDiv.innerHTML = `<div class="alert alert-danger">${error.message || t.formError}</div>`;
   } finally {
     submitBtn.disabled = false;
-    submitBtn.textContent = translations[document.documentElement.lang].formButton;
+    submitBtn.textContent = t.formButton;
     
     // Ocultar mensaje después de 5 segundos
     setTimeout(() => {
