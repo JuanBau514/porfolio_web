@@ -55,7 +55,7 @@
         <a href="#home" title="Logo" class="logo">
             <!--Logo Default-->
             <div class="mega-logo">
-                <img src="img/stumbleupon copy.png" alt="logo" class="ml-lg-3 m-0">
+                <!-- <img src="img/stumbleupon copy.png" alt="logo" class="ml-lg-3 m-0"> -->
                 
             </div>
         </a>
@@ -82,10 +82,10 @@
         <div class="inner-wrapper">
             <nav class="side-nav w-100">
                 <a href="#home" title="Logo" class="logo navbar-brand">
-                    <img src="img/stumbleupon copy.png" alt="logo">
+                    <!-- <img src="img/stumbleupon copy.png" alt="logo"> -->
                 </a>
                 <ul class="navbar-nav text-capitalize">
-                    <li class="nav-item">
+                    <li class="nav-item">   
                         <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
@@ -127,63 +127,69 @@
 <div id="pagepiling">
 
 <!-- START BANNER -->
-    <section class="section slide1 p-0" id="home">
-        <div class="slider-area" id="slider-area">
+        <section class="section slide1 p-0" id="home">
+        <div class="slider-area position-relative" id="slider-area">
             <div class="row align-items-center">
-                <div class="col-12 col-lg-6 image-order">
-                    <div class="slider-image">
-                        /*<img src="img/slider-img.png" alt="Slider-Image">*/
+                
+                <!-- Imagen -->
+                <div class="col-12 col-lg-6 image-order text-center">
+                    <div class="slider-image position-relative">
+                        <img src="img/foto.jpeg" alt="Slider-Image" class="img-fluid rounded-circle border border-4 border-yellow custom-profile-img">
                     </div>
                 </div>
+
+
+                <!-- Texto -->
                 <div class="col-12 col-lg-6 text-md-center text-lg-left">
-                    <div class="slider-content">
-                        <h1 class="main-font text-uppercase"><span class="slider-text px-2"> Hello, I am </span> <span class="d-block text-yellow"> web designer.</span></h1>
-                        <p class="pt-3 alt-font content-para">Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been the industry’s standard dummy.  Lorem Ipsum has been the industry’s standard dummy.</p>
+                    <div class="slider-content px-4 px-lg-0">
+                       <h1 class="main-font text-uppercase">
+                            <span class="slider-text px-2">Hello, I am</span>
+                            <br>
+                                <span class="text-yellow">Juan Pablo Bautista</span>
+                            <br>
+                            <span class="typed-wrapper">
+                                <span class="typed-text text-yellow"></span>
+                                <span class="cursor">|</span>
+                            </span>
+                        </h1>
+
+                        <p class="pt-3 alt-font content-para text-white">
+                            Tecnólogo en Sistematización de Datos con experiencia en desarrollo de software web y móvil. He trabajado en proyectos reales con empresas, implementando soluciones en Laravel, React.js, Kotlin y Spring Boot. Enfocado en construir interfaces modernas, sistemas eficientes y procesos automatizados.
+                        </p>
                     </div>
                 </div>
             </div>
-            <!-- Circle-One -->
-            <div class="circle-one">
-                 <span data-tootik="About" data-tootik-conf="right dark square shadow">
-                    <a href="#about">
-                        <span class="animated-circle position-relative"></span>
-                    </a>
-                 </span>
+
+            <!-- Círculos animados (reubicados) -->
+            <div class="circle-one" style="top: 30%; left: 70%;">
+                <span data-tootik="About" data-tootik-conf="right dark square shadow">
+                    <a href="#about"><span class="animated-circle position-relative"></span></a>
+                </span>
             </div>
-            <!-- Circle-Two -->
-            <div class="circle-two">
-                 <span data-tootik="Timeline" data-tootik-conf="left dark square shadow">
-                    <a href="#timeline">
-                        <span class="animated-circle position-relative"></span>
-                    </a>
-                 </span>
+            <div class="circle-two" style="top: 30%; left: 65%;">
+                <span data-tootik="Timeline" data-tootik-conf="left dark square shadow">
+                    <a href="#timeline"><span class="animated-circle position-relative"></span></a>
+                </span>
             </div>
-            <!-- Circle-Three -->
-            <div class="circle-three">
-              <span data-tootik="Portfolio" data-tootik-conf="top dark square shadow">
-                    <a href="#portfolio">
-                        <span class="animated-circle position-relative"></span>
-                    </a>
-              </span>
+            <div class="circle-three" style="top: 30%; left: 60%;">
+                <span data-tootik="Portfolio" data-tootik-conf="top dark square shadow">
+                    <a href="#portfolio"><span class="animated-circle position-relative"></span></a>
+                </span>
             </div>
-            <!-- Circle-Four -->
-            <div class="circle-four">
-                  <span data-tootik="Testimonials" data-tootik-conf="bottom dark square shadow">
-                    <a href="#testimonial">
-                        <span class="animated-circle position-relative"></span>
-                    </a>
-                  </span>
+
+            <div class="circle-four" style="top: 30%; left: 50%;">
+                <span data-tootik="Testimonials" data-tootik-conf="bottom dark square shadow">
+                    <a href="#testimonial"><span class="animated-circle position-relative"></span></a>
+                </span>
             </div>
-            <!-- Circle-Five -->
-            <div class="circle-five">
-                  <span data-tootik="Contact" data-tootik-conf="bottom dark square shadow">
-                        <a href="#contact">
-                            <span class="animated-circle position-relative"></span>
-                        </a>
-                  </span>
+            <div class="circle-five" style="top: 30%; left: 55%;">
+                <span data-tootik="Contact" data-tootik-conf="bottom dark square shadow">
+                    <a href="#contact"><span class="animated-circle position-relative"></span></a>
+                </span>
             </div>
         </div>
     </section>
+
 <!-- END BANNER -->
 
 <!-- START SKILLS -->
@@ -993,7 +999,7 @@
             <li><a class="social-icon" href="javascript:void(0)"><i class="lni lni-linkedin-original"></i> </a> </li>
         </ul>
     </div>
-    <span class="slider-copyright text-grey">@Animation Coding</span>
+    <!-- <span class="slider-copyright text-grey">@Animation Coding</span> -->
 </div>
 <!-- End Copyright -->
 
@@ -1013,6 +1019,38 @@
 <script src="js/timeline.js"></script>
 <script src="js/contact_us.js"></script>
 <script src="js/script.js"></script>
+<script>
+    const phrases = ["Frontend Developer", "Backend Developer", "Software Developer"];
+    let currentPhrase = 0;
+    let currentLetter = 0;
+    const typedText = document.querySelector(".typed-text");
+    const cursor = document.querySelector(".cursor");
+
+    function type() {
+        if (currentLetter < phrases[currentPhrase].length) {
+            typedText.textContent += phrases[currentPhrase].charAt(currentLetter);
+            currentLetter++;
+            setTimeout(type, 100);
+        } else {
+            setTimeout(erase, 1500);
+        }
+    }
+
+    function erase() {
+        if (currentLetter > 0) {
+            typedText.textContent = phrases[currentPhrase].substring(0, currentLetter - 1);
+            currentLetter--;
+            setTimeout(erase, 50);
+        } else {
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+            setTimeout(type, 200);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (phrases.length) setTimeout(type, 500);
+    });
+</script>
 
 </body>
 </html>

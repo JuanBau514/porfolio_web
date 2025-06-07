@@ -34,6 +34,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.typed-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre texto y cursor */
+}
+
+.cursor {
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  animation: blink 0.7s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
 .main-font{font-family: 'Oswald', sans-serif;}
 .alt-font{font-family: 'Roboto', sans-serif;}
 .mons-font{font-family: 'Montserrat', sans-serif;}
@@ -1387,6 +1417,13 @@ header a.logo img {
 .item:hover .overlay-text {
     opacity: 1;
 }
+
+.custom-profile-img {
+    max-width: 800px; /* Ajusta este valor según lo que necesites */
+    width: 100%;
+    height: auto;
+}
+
 
 .item:hover .overlay-text:before,
 .item:hover .overlay-text:after {
