@@ -159,9 +159,78 @@ section{padding: 0;}
 
 /* nav top default */
 
-header a.logo img {
-    max-width: 80px;
-    vertical-align: sub;
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.language-button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.language-options {
+  display: none; /* Esto debe ser el valor inicial */
+  position: absolute;
+  right: 1rem;
+  bottom: -1rem;
+  background-color: #111;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  z-index: 1000;
+  /* Estilos para disposición horizontal */
+  flex-direction: row; /* Explícito para mayor claridad */
+  gap: 12px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Solo mostrar en hover */
+.language-dropdown:hover .language-options,
+.language-options:hover {
+  display: flex; /* Solo se aplica cuando hay hover */
+}
+
+.language-options button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  padding: 5px 8px;
+  cursor: pointer;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Efectos hover para los botones */
+.language-options button:hover {
+  transform: scale(1.05);
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .language-options {
+    flex-direction: column;
+    gap: 6px;
+    bottom: auto;
+    top: 100%;
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-options button span {
+    display: none;
+  }
 }
 
 .nav-button {

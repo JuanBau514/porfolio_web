@@ -56,7 +56,15 @@
             <!--Logo Default-->
             <div class="mega-logo">
                 <!-- <img src="img/stumbleupon copy.png" alt="logo" class="ml-lg-3 m-0"> -->
-                
+                <div class="language-dropdown ms-auto me-3">
+                    <button class="language-button" id="active-language">🌐</button>
+                    <div class="language-options">
+                        <button onclick="setLanguage('es')">🇪🇸 <span>Español</span></button>
+                        <button onclick="setLanguage('en')">🇺🇸 <span>English</span></button>
+                        <button onclick="setLanguage('pt')">🇧🇷 <span>Português</span></button>
+                    </div>
+                </div>
+
             </div>
         </a>
 
@@ -116,7 +124,6 @@
                     <li><a class="social-icon" href="javascript:void(0)"><i class="lni lni-twitter"></i> </a> </li>
                     <li><a class="social-icon" href="javascript:void(0)"><i class="lni lni-linkedin"></i> </a> </li>
                 </ul>
-                <p>&copy; Animation Coding</p>
             </div>
         </div>
     </div>
@@ -142,18 +149,18 @@
                 <!-- Texto -->
                 <div class="col-12 col-lg-6 text-md-center text-lg-left">
                     <div class="slider-content px-4 px-lg-0">
-                       <h1 class="main-font text-uppercase">
-                            <span class="slider-text px-2">Hello, I am</span>
+                          <h1 class="main-font text-uppercase">
+                            <span id="greeting" class="slider-text px-2">Hello, I am</span>
                             <br>
-                                <span class="text-yellow">Juan Pablo Bautista</span>
+                            <span id="name" class="text-yellow">Juan Pablo Bautista</span>
                             <br>
                             <span class="typed-wrapper">
                                 <span class="typed-text text-yellow"></span>
                                 <span class="cursor">|</span>
                             </span>
-                        </h1>
+                            </h1>
 
-                        <p class="pt-3 alt-font content-para text-white">
+                        <p id="description" class="pt-3 alt-font content-para text-white">
                             Tecnólogo en Sistematización de Datos con experiencia en desarrollo de software web y móvil. He trabajado en proyectos reales con empresas, implementando soluciones en Laravel, React.js, Kotlin y Spring Boot. Enfocado en construir interfaces modernas, sistemas eficientes y procesos automatizados.
                         </p>
                     </div>
@@ -1051,6 +1058,6 @@
         if (phrases.length) setTimeout(type, 500);
     });
 </script>
-
+<script src="js/lang.js" defer></script>
 </body>
 </html>
