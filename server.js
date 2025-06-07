@@ -6,11 +6,12 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const cors = require('cors');
 
+
 const app = express();
 
 // Configuración de CORS más permisiva para desarrollo
 app.use(cors({
-  origin: ['http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:3000'],
+  origin: ['http://127.0.0.1:5500', 'http://localhost:5500', 'https://porfolioweb-production.up.railway.app'],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true

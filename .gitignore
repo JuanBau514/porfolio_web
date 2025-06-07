@@ -30,6 +30,20 @@
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
+# Archivos de configuración sensibles
+config/google-credentials.json
+client_secret_*.json
+*.env
+.env.local
+.env.development
+
+# Google Cloud
+gcloud/
+.gcloud/
+
+# Credenciales específicas
+**/credentials.json
+**/client_secret_*.json
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
