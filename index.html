@@ -321,7 +321,8 @@
                                         <li><a href="#" data-date="01/11/2017" style="left: 200px;">2017</a></li>
                                         <li><a href="#" data-date="10/12/2017" style="left: 200px;">2019</a></li>
                                         <li><a href="#" data-date="19/01/2018" style="left: 200px;">2020</a></li>
-                                        <li><a href="#" data-date="03/03/2018" style="left: 200px;">2020</a></li>
+                                        <li><a href="#" data-date="01/03/2026" style="left: 200px;">2026</a></li>
+
                                     </ol>
                                     <span class="filling-line" aria-hidden="true"></span>
                                 </div>
@@ -337,42 +338,43 @@
                         <!-- Timeline -->
                         <div class="events-content">
                             <ol>
-                                <li class="selected" data-date="16/01/2017">
+                                <li class="selected" data-date="01/03/2026">
                                     <!-- Main Content Div -->
                                     <div class="col-12 pl-md-0">
-                                      <div class="main-content text-uppercase">
-                                          <h4 class="text-yellow main-font font-weight-normal">15 MAY 2003</h4>
-                                          <h2 class="main-font">I had graduated from university</h2>
-                                      </div>
-                                  </div>
+                                        <div class="main-content text-uppercase">
+                                            <h4 class="text-yellow main-font font-weight-normal">Marzo 2026</h4>
+                                            <h2 class="main-font">Graduación Universitaria</h2>
+                                        </div>
+                                    </div>
                                     <!-- Sub Content Div -->
                                     <div class="row align-items-center">
                                         <div class="col-12 col-md-3 pl-md-0">
                                             <div class="sub-content">
                                                 <h5 class="text-uppercase main-font text-yellow">Major subjects</h5>
-                                                <p class="alt-font">Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. </p>
+                                                <p class="alt-font">Tecnología en sistematización de datos. Tesis enfocada en Web Scraping y Expresiones Regulares.</p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-3">
                                             <div class="sub-content">
                                                 <h5 class="text-uppercase main-font text-yellow">My Achievements</h5>
-                                                <p class="alt-font">Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. </p>
+                                                <p class="alt-font">Desarrollo de aplicaciones en Kotlin, microservicios, servicios web, PostgreSQL, MySQL, React y PHP.</p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-3">
                                             <div class="sub-content">
-                                                <h5 class="text-uppercase main-font text-yellow">What I learned </h5>
-                                                <p class="alt-font">Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. </p>
+                                                <h5 class="text-uppercase main-font text-yellow">What I learned</h5>
+                                                <p class="alt-font">Scraping, WebSockets, arquitectura full stack, Laravel, automatización, seguridad y manejo de APIs externas.</p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-3 pr-md-0">
                                             <div class="sub-content">
                                                 <h5 class="text-uppercase main-font text-yellow">Final year project</h5>
-                                                <p class="alt-font">Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. </p>
+                                                <p class="alt-font">Automatización de homologación académica mediante scraping e interfaz web. Tecnología utilizada: Node.js, PostgreSQL.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
+
                                 <li data-date="28/02/2017">
                                     <!-- Main Content Div -->
                                     <div class="col-12 pl-md-0">
@@ -956,7 +958,7 @@
 <!-- END TESTIMONIALS -->
 
 <!-- START CONTACT -->
-    <section class="section slide5 contact-bg" id="contact">
+<section class="section slide5 contact-bg" id="contact">
     <div class="container">
         <div class="row pb-5">
             <div class="col-12 col-md-7">
@@ -966,47 +968,41 @@
                 </h3>
                 <p class="py-2 alt-font" id="contact-availability">Estoy disponible para proyectos acordes a mis habilidades.</p>
             </div>
-            <div class="col-12 col-md-5 text-md-right pt-4 pt-md-0">
+            <div class="col-10 col-md-4 text-md-right pt-4 pt-md-0">
                 <h2 class="m-0 text-yellow main-font font-weight-bold">jbautistaclavijo@gmail.com</h2>
                 <p class="alt-font" id="contact-method">Mi correo electrónico</p>
             </div>
         </div>
         <form class="contact-form" id="contact-form">
             <div class="row pt-3">
-                <!-- Mensajes de estado -->
                 <div class="col-12">
                     <div class="col-sm-12 px-0" id="result"></div>
                 </div>
                 
-                <!-- Columna Izquierda -->
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Nombre" required id="name" name="name">
+                        <input class="form-control" type="text" placeholder="Nombre" required id="name-input" name="name">
                     </div>
 
                     <div class="form-group">
-                        <input class="form-control" type="tel" placeholder="Teléfono" id="phone" name="phone">
+                        <input class="form-control" type="tel" placeholder="Teléfono" id="phone-input" name="phone">
                     </div>
 
                     <div class="form-group">
-                        <input class="form-control" type="email" placeholder="Correo electrónico" required id="email" name="email">
+                        <input class="form-control" type="email" placeholder="Correo electrónico" required id="email-input" name="email">
                     </div>
                     
-                    <!-- Campo honeypot para bots -->
                     <input type="text" name="honeypot" style="display:none;">
                 </div>
                 
-                <!-- Columna Derecha -->
                 <div class="col-12 col-md-6 offset-md-1 contact-form">
                     <div class="form-group">
-                        <textarea class="form-control" placeholder="Escribe tu mensaje aquí" required id="message" name="message" rows="5"></textarea>
+                        <textarea class="form-control" placeholder="Escribe tu mensaje aquí" required id="message-input" name="message" rows="5"></textarea>
                     </div>
                     
-                    <!-- reCAPTCHA -->
                     <div class="g-recaptcha" data-sitekey="6Leu9lgrAAAAAI17GnxuLsMhfwpZORVElo-DPkHv"></div>
                 </div>
                 
-                <!-- Botón -->
                 <div class="col-12 px-md-0">
                     <div class="contact-btn pt-5 text-center text-lg-left">
                         <button type="submit" class="btn btn-medium btn-rounded btn-yellow text-capitalize" id="submit-btn">
@@ -1087,95 +1083,6 @@
 
 
 <script src="js/lang.js" defer></script>
-
-<!-- <script>
-   document.addEventListener('DOMContentLoaded', function() {
-  const contactForm = document.getElementById('contact-form');
-  if (!contactForm) return;
-
-  contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const resultDiv = document.getElementById('result');
-    const currentLang = document.documentElement.lang || 'es';
-    const t = translations[currentLang];
-
-    // Validar elementos
-    if (!submitBtn || !resultDiv) {
-      console.error('Elementos del formulario no encontrados');
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
-
-    try {
-      // Verificar reCAPTCHA
-      if (typeof grecaptcha === 'undefined') {
-        throw new Error(t.formError);
-      }
-
-      const token = grecaptcha.getResponse();
-      if (!token) {
-        throw new Error('Por favor completa el reCAPTCHA');
-      }
-
-      // Obtener datos del formulario
-      const formData = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        phone: document.getElementById('phone')?.value.trim() || '',
-        message: document.getElementById('message').value.trim(),
-        'g-recaptcha-response': token
-      };
-
-      // Validación
-      if (!formData.name || !formData.email || !formData.message) {
-        throw new Error('Nombre, email y mensaje son requeridos');
-      }
-
-      // Enviar al backend
-      const response = await fetch('http://localhost:3000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-
-      // Manejar respuesta
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || t.formError);
-      }
-
-      const data = await response.json();
-      
-      // Mostrar resultado
-      resultDiv.innerHTML = `<div class="alert alert-success">${t.formSuccess}</div>`;
-      contactForm.reset();
-      
-      if (typeof grecaptcha !== 'undefined') {
-        grecaptcha.reset();
-      }
-
-    } catch (error) {
-      console.error('Error al enviar el formulario:', error);
-      resultDiv.innerHTML = `<div class="alert alert-danger">${error.message || t.formError}</div>`;
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = t.formButton;
-      
-      // Ocultar mensaje después de 5 segundos
-      setTimeout(() => {
-        resultDiv.innerHTML = '';
-      }, 5000);
-    }
-  });
-});
-</script> -->
-
 
 </body>
 </html>

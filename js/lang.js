@@ -98,18 +98,32 @@ const translations = {
 };
 
 // Actualizar textos del formulario al cambiar idioma
-function updateContactFormTexts(lang) {
-  const t = translations[lang];
-  document.getElementById('contact-title').textContent = t.contactTitle;
-  document.getElementById('contact-subtitle').textContent = t.contactSubtitle;
-  document.getElementById('contact-availability').textContent = t.contactAvailability;
-  document.getElementById('contact-method').textContent = t.contactMethod;
-  
-  document.querySelector('#name').placeholder = t.formName;
-  document.querySelector('#phone').placeholder = t.formPhone;
-  document.querySelector('#email').placeholder = t.formEmail;
-  document.querySelector('#message').placeholder = t.formMessage;
-  document.querySelector('#submit-btn').textContent = t.formButton;
+function updateContactSection(lang) {
+    const t = translations[lang] || translations['es']; // Fallback a español
+    
+    // Actualizar textos estáticos
+    const contactTitle = document.getElementById('contact-title');
+    const contactSubtitle = document.getElementById('contact-subtitle');
+    const contactAvailability = document.getElementById('contact-availability');
+    const contactMethod = document.getElementById('contact-method');
+    
+    if (contactTitle) contactTitle.textContent = t.contactTitle;
+    if (contactSubtitle) contactSubtitle.textContent = t.contactSubtitle;
+    if (contactAvailability) contactAvailability.textContent = t.contactAvailability;
+    if (contactMethod) contactMethod.textContent = t.contactMethod;
+    
+    // Actualizar placeholders del formulario
+    const nameInput = document.getElementById('name-input');
+    const phoneInput = document.getElementById('phone-input');
+    const emailInput = document.getElementById('email-input');
+    const messageInput = document.getElementById('message-input');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    if (nameInput) nameInput.placeholder = t.formName;
+    if (phoneInput) phoneInput.placeholder = t.formPhone;
+    if (emailInput) emailInput.placeholder = t.formEmail;
+    if (messageInput) messageInput.placeholder = t.formMessage;
+    if (submitBtn) submitBtn.textContent = t.formButton;
 }
 
 // Función para detectar idioma del navegador
@@ -186,10 +200,8 @@ function setLanguage(lang, initialLoad = false) {
   // 5. Actualizar atributo de idioma para accesibilidad
   document.documentElement.lang = lang;
 
-  // 6. Opcional: Reiniciar animaciones si es necesario
-  if (typeof initAnimations === 'function') {
-    initAnimations();
-  }
+  // 6. Actualizar textos del formulario de contacto
+      updateContactSection(lang);
 }
 
 // Función para inicializar el idioma al cargar la página
@@ -229,86 +241,77 @@ function showLanguageNotification(lang) {
   }, 2000);
 }
 
-
-// Reemplaza todo el código del event listener submit con esto:
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const form = e.target;
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const resultDiv = document.getElementById('result');
-  const currentLang = document.documentElement.lang || 'es';
-  const t = translations[currentLang];
-  
-  // Deshabilitar botón para evitar múltiples envíos
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Enviando...';
-  
-  try {
-    // Verificar reCAPTCHA
-    if (typeof grecaptcha === 'undefined') {
-      throw new Error('reCAPTCHA no está cargado');
-    }
+// Manejo del formulario (similar a tu implementación actual)
+document.getElementById('contact-form')?.addEventListener('submit', async function(e) {
+    e.preventDefault();
     
-    const token = grecaptcha.getResponse();
-    if (!token) {
-      throw new Error('Por favor completa el reCAPTCHA');
-    }
-
-    // Obtener datos del formulario
-    const formData = {
-      name: form.querySelector('#name').value.trim(),
-      email: form.querySelector('#email').value.trim(),
-      phone: form.querySelector('#phone')?.value.trim() || '',
-      message: form.querySelector('#message').value.trim(),
-      'g-recaptcha-response': token
-    };
-
-    // Validación básica
-    if (!formData.name || !formData.email || !formData.message) {
-      throw new Error('Nombre, email y mensaje son requeridos');
-    }
-
-    // URL ABSOLUTA al backend - ¡IMPORTANTE!
-    const response = await fetch('http://localhost:3000/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const resultDiv = document.getElementById('result');
+    const currentLang = document.documentElement.lang || 'es';
+    const t = translations[currentLang] || translations['es'];
     
-    // Manejar respuesta
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.error || t.formError);
-    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    
+    try {
+        if (typeof grecaptcha === 'undefined') {
+            throw new Error('reCAPTCHA no está cargado');
+        }
+        
+        const token = grecaptcha.getResponse();
+        if (!token) {
+            throw new Error(t.formErrorCaptcha || 'Por favor completa el reCAPTCHA');
+        }
 
-    const data = await response.json();
-    
-    if (data.success) {
-      resultDiv.innerHTML = `<div class="alert alert-success">${t.formSuccess}</div>`;
-      form.reset();
-      
-      // Resetear reCAPTCHA
-      if (typeof grecaptcha !== 'undefined') {
-        grecaptcha.reset();
-      }
-    } else {
-      throw new Error(data.error || t.formError);
+        const formData = {
+            name: form.querySelector('#name-input').value.trim(),
+            email: form.querySelector('#email-input').value.trim(),
+            phone: form.querySelector('#phone-input')?.value.trim() || '',
+            message: form.querySelector('#message-input').value.trim(),
+            'g-recaptcha-response': token
+        };
+
+        if (!formData.name || !formData.email || !formData.message) {
+            throw new Error(t.formErrorRequired || 'Campos requeridos faltantes');
+        }
+
+        const response = await fetch('http://localhost:3000/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.error || t.formError);
+        }
+
+        const data = await response.json();
+        
+        if (data.success) {
+            resultDiv.innerHTML = `<div class="alert alert-success">${t.formSuccess}</div>`;
+            form.reset();
+            
+            if (typeof grecaptcha !== 'undefined') {
+                grecaptcha.reset();
+            }
+        } else {
+            throw new Error(data.error || t.formError);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        resultDiv.innerHTML = `<div class="alert alert-danger">${error.message || t.formError}</div>`;
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = t.formButton;
+        
+        setTimeout(() => {
+            resultDiv.innerHTML = '';
+        }, 5000);
     }
-  } catch (error) {
-    console.error('Error:', error);
-    resultDiv.innerHTML = `<div class="alert alert-danger">${error.message || t.formError}</div>`;
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = t.formButton;
-    
-    // Ocultar mensaje después de 5 segundos
-    setTimeout(() => {
-      resultDiv.innerHTML = '';
-    }, 5000);
-  }
 });
 
 // Inicialización
