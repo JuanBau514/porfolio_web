@@ -91,6 +91,19 @@ timeline2026: {
   achievements: "Perfil sólido como Full Stack Developer y Android Developer. Capacidad de desarrollo completo desde el frontend al backend en entornos reales.",
   learnings: "Profundización en arquitectura web, automatización, trabajo en equipo remoto, integración de servicios, y desarrollo de apps conectadas.",
   next: "Aprender Python para automatización avanzada e IA, mejorar en Spring Boot, retomar desarrollo en C/C++ y explorar DevOps, testing y software multiplataforma."
+},
+portfolio: {
+  title: "Portafolio",
+  subtitle: "Mis trabajos recientes",
+  description: "Creo en el arte, y esa ha sido mi pasión a lo largo de la vida.",
+  countLabel: "Proyectos en el portafolio",
+  pokeFocusDescription: "Este proyecto fue desarrollado con HTML, JavaScript y CSS vanilla. Integra lógica de juego y consumo de una API externa para mostrar datos dinámicos de Pokémon.",
+  veterinariaDescription: "Esta aplicación monolítica fue desarrollada en Java y utiliza archivos CSV como sistema de almacenamiento. Está diseñada para gestionar clínicas veterinarias y está lista para escalar con una base de datos.",
+  game2048Description: "Juego nativo desarrollado en Kotlin para Android. Integra Firebase para almacenar los puntajes más altos en la nube y permite competir entre jugadores.",
+  ecommerceDescription: "Proyecto E-commerce con frontend en HTML, CSS y JavaScript. Backend construido con Java Spring Boot mediante API REST, integrando ambas capas mediante objetos JSON.",
+  gregDescription: "Sitio web profesional para real estate con integración de Google Maps, formularios, geolocalización y sistema multilenguaje en tiempo real.",
+  homologacionesDescription: "Aplicación desarrollada en React (frontend) y Node.js (backend), pensada para ser ligera, portable y fácil de desplegar. Automatiza el proceso académico de homologación entre instituciones."
+
 }
 
 
@@ -187,7 +200,20 @@ timeline2026: {
   achievements: "Strong profile as a Full Stack and Android Developer. Capable of complete development from frontend to backend in real-world environments.",
   learnings: "Deepened knowledge in web architecture, automation, remote teamwork, service integration, and connected app development.",
   next: "Learn Python for advanced automation and AI, improve Spring Boot skills, return to C/C++ systems and explore DevOps, testing, and cross-platform software."
-}
+},
+portfolio: {
+  title: "Portfolio",
+  subtitle: "My Recent Work",
+  description: "I believe in art, and that is my passion throughout my life.",
+  countLabel: "Portfolio Items",
+  pokeFocusDescription: "This project was built using HTML, JavaScript, and vanilla CSS. It implements game logic and consumes an external API to display dynamic Pokémon data.",
+  veterinariaDescription: "This monolithic application was developed in Java and uses CSV files as its storage system. It is designed to manage veterinary clinics and is ready to scale with a database integration.",
+  game2048Description: "Native game developed in Kotlin for Android. It integrates Firebase to store high scores in the cloud, enabling competition between players.",
+  ecommerceDescription: "E-commerce project with frontend built in HTML, CSS, and JavaScript. Backend powered by Java Spring Boot REST APIs, integrated via JSON objects.",
+  gregDescription: "Professional real estate website with Google Maps integration, geolocation, forms, and real-time multilingual support.",
+  homologacionesDescription: "Application built with React (frontend) and Node.js (backend), designed to be lightweight, portable, and easy to deploy. It automates the academic process of course equivalency between institutions."
+
+},
 
 
 
@@ -284,7 +310,20 @@ timeline2026: {
   achievements: "Perfil sólido como Desenvolvedor Full Stack e Android. Capaz de realizar o desenvolvimento completo do frontend ao backend em ambientes reais.",
   learnings: "Aprofundamento em arquitetura web, automação, trabalho remoto em equipe, integração de serviços e desenvolvimento de aplicativos conectados.",
   next: "Aprender Python para automação avançada e IA, melhorar com Spring Boot, retomar sistemas em C/C++ e explorar DevOps, testes e software multiplataforma."
-}
+},
+portfolio: {
+  title: "Portfólio",
+  subtitle: "Meus Trabalhos Recentes",
+  description: "Acredito na arte, e essa é a minha paixão ao longo da vida.",
+  countLabel: "Projetos no portfólio",
+  pokeFocusDescription: "Este projeto foi desenvolvido com HTML, JavaScript e CSS puro. Integra lógica de jogo e consome uma API externa para exibir dados dinâmicos de Pokémon.",
+  veterinariaDescription: "Este aplicativo monolítico foi desenvolvido em Java e usa arquivos CSV como sistema de armazenamento. Foi projetado para gerenciar clínicas veterinárias e está pronto para ser escalado com banco de dados.",
+  game2048Description: "Jogo nativo desenvolvido em Kotlin para Android. Integra o Firebase para armazenar as pontuações mais altas na nuvem e permite competição entre jogadores.",
+  ecommerceDescription: "Projeto de E-commerce com frontend em HTML, CSS e JavaScript. Backend construído com Java Spring Boot e APIs REST, integrando via objetos JSON.",
+  gregDescription: "Site profissional para o setor imobiliário com integração com Google Maps, formulários, geolocalização e suporte multilíngue em tempo real.",
+  homologacionesDescription: "Aplicativo desenvolvido com React (frontend) e Node.js (backend), projetado para ser leve, portátil e fácil de implantar. Automatiza o processo acadêmico de equivalência de disciplinas entre instituições."
+
+},
 
 }
 };
@@ -469,7 +508,24 @@ document.getElementById('timeline-2026-learnings').textContent = t2026.learnings
 document.getElementById('timeline-2026-heading-next').textContent = t2026.headingNext;
 document.getElementById('timeline-2026-next').textContent = t2026.next;
 
+// Portfolio Section
+const p = t.portfolio;
 
+document.getElementById("portfolio-title").textContent = p.title;
+document.getElementById("portfolio-subtitle").textContent = p.subtitle;
+document.getElementById("portfolio-description").textContent = p.description;
+document.getElementById("portfolio-count-label").textContent = p.countLabel;
+
+// Descripción de Poke Focus
+const pokeFocusDesc = document.getElementById("poke-focus-description");
+if (pokeFocusDesc) pokeFocusDesc.textContent = p.pokeFocusDescription;
+
+document.getElementById("veterinaria-description").textContent = t.portfolio.veterinariaDescription;
+document.getElementById("game2048-description").textContent = t.portfolio.game2048Description;
+document.getElementById("ecommerce-description").textContent = t.portfolio.ecommerceDescription;
+document.getElementById("greg-description").textContent = t.portfolio.gregDescription;
+
+document.getElementById("homologaciones-description").textContent = t.portfolio.homologacionesDescription;
 }
 
 // Función para inicializar el idioma al cargar la página
