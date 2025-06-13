@@ -2,11 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const fetch = require('node-fetch'); // Cambiamos la importación dinámica
+const fetch = require('node-fetch');
+const path = require('path'); // ← IMPORTANTE para rutas
 
 const app = express();
 
-// Configuración de middlewares
+// CORS
 app.use(cors({
   origin: ['http://127.0.0.1:5500', 'http://localhost:3000', 'http://127.0.0.1:3001', 'http://localhost:3001'],
   methods: ['GET', 'POST'],
@@ -15,6 +16,9 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// 🔧 Servir archivos estáticos del frontend
+app.use(express.static(path.join(__dirname, 'PORTFOLIO_WEB'))); // Asegúrate que esta sea la carpeta correcta
 
 // Configuración de Nodemailer
 const transporter = nodemailer.createTransport({
@@ -25,7 +29,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Verificación reCAPTCHA
+// reCAPTCHA
 async function verifyRecaptcha(token) {
   if (!token || !process.env.RECAPTCHA_SECRET_KEY) return false;
 
@@ -43,14 +47,13 @@ async function verifyRecaptcha(token) {
   }
 }
 
-// Ruta del formulario de contacto
+// POST contacto
 app.post('/api/contact', async (req, res) => {
   console.log('Body recibido:', req.body);
 
   try {
     const { name, email, phone = '', message, 'g-recaptcha-response': token } = req.body;
 
-    // Validación de campos
     if (!name || !email || !message || !token) {
       return res.status(400).json({ 
         success: false,
@@ -58,7 +61,6 @@ app.post('/api/contact', async (req, res) => {
       });
     }
 
-    // Verificar reCAPTCHA
     const recaptchaValid = await verifyRecaptcha(token);
     if (!recaptchaValid) {
       return res.status(400).json({ 
@@ -67,7 +69,6 @@ app.post('/api/contact', async (req, res) => {
       });
     }
 
-    // Configurar el correo
     const mailOptions = {
       from: `"Portfolio Contacto" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
@@ -88,7 +89,6 @@ app.post('/api/contact', async (req, res) => {
       `
     };
 
-    // Enviar el correo
     await transporter.sendMail(mailOptions);
     
     res.json({ 
@@ -106,7 +106,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Ruta de prueba
+// Ruta test
 app.get('/api/test', (req, res) => {
   res.json({
     status: 'Servidor funcionando',
@@ -114,8 +114,13 @@ app.get('/api/test', (req, res) => {
   });
 });
 
+// 🏠 Catch-all para servir index.html en producción
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'PORTFOLIO_WEB', 'index.html'));
+});
+
 // Iniciar servidor
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en http://localhost:${PORT}`);
 });
