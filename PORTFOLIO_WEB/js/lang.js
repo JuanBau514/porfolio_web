@@ -600,12 +600,12 @@ document.getElementById('contact-form')?.addEventListener('submit', async functi
             throw new Error(t.formErrorRequired || 'Campos requeridos faltantes');
         }
 
-        const response = await fetch('http://localhost:3000/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
+        const response = await fetch(`${window.location.origin}/api/contact`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
         });
         
         if (!response.ok) {
