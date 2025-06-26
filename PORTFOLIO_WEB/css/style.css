@@ -85,7 +85,7 @@ a {color:inherit;text-decoration: none;}
 .btn.focus, .btn:focus{-webkit-box-shadow: none;box-shadow: none;}
 p:last-child{margin-bottom: 0 !important; font-family: 'Roboto', sans-serif;}
 .fa, .far, .fas{display: inline;}
-a:active, a:hover{color: #dabd1d;}
+a:active, a:hover{color: #adebb3;}
 li{list-style: none;text-decoration: none;}
 blockquote {border-left: 2px solid;padding: 10px 15px 10px 35px;margin: 25px 0;font-size: 18px;line-height: 28px;}
 blockquote > cite {font-weight: 400;font-size: 14px;display: block;}
@@ -93,7 +93,7 @@ blockquote > cite {font-weight: 400;font-size: 14px;display: block;}
 section{padding: 0;}
 .padding-bottom {padding-bottom: 7.5rem;}
 .padding-top {padding-top: 7.5rem;}
-::selection {background-color: #ffd700; color: #ffffff;}
+::selection {background-color: #5bcd68; color: #ffffff;}
 
 
 /* transition none */
@@ -125,11 +125,11 @@ section{padding: 0;}
 /* button */
 .btn {-webkit-appearance: initial; overflow: hidden;position: -webkit-sticky;position: sticky; z-index: 2; display:inline-block; font-size: 16px; border:2px solid transparent; letter-spacing: .5px; line-height: inherit; border-radius: 0; text-transform:capitalize; width: auto;font-family: 'Roboto', sans-serif; font-weight: bold; -webkit-transition: all .5s ease;-o-transition: all .5s ease !important;transition: all .5s ease !important;}
 /* Yellow button */
-.btn.btn-yellow {background: transparent ; border-color: #ffd700; color: #ffd700; }
-.btn.btn-yellow:hover {background: #dabd1d!important; border-color: #dabd1d; color: #202020!important}
+.btn.btn-yellow {background: transparent ; border-color: #5bcd68; color: #5bcd68; }
+.btn.btn-yellow:hover {background: #adebb3!important; border-color: #adebb3; color: #202020!important}
 /* Transparent button */
 .btn.btn-trans {background: transparent; border-color: #ffffff; color: #ffffff}
-.btn.btn-trans:hover {background: #ffd700 !important; border-color:#ffd700; color: #ffffff !important}
+.btn.btn-trans:hover {background: #5bcd68 !important; border-color:#5bcd68; color: #ffffff !important}
 
 /* button size */
 .btn.btn-small {font-size:12px; padding: 4px 1.8em;}
@@ -138,12 +138,12 @@ section{padding: 0;}
 .btn.btn-rounded {border-radius: 50px;}
 
 /* Text color */
-.text-yellow {color: #ffd700;}
+.text-yellow {color: #5bcd68;}
 .text-grey {color: #a6a6a6;}
 .text-white {color: #ffffff;}
 
 /* Background color */
-.bg-yellow {background: #ffd700;}
+.bg-yellow {background: #5bcd68;}
 .bg-black {background: #000000;}
 .bg-transparent {background: transparent;}
 
@@ -151,7 +151,7 @@ section{padding: 0;}
 .margin-bottom {margin-bottom: 30px;}
 
 /*Social Icon Hover Bg Hover */
-.social-icon:hover{color:#202020 !important; background: #dabd1d !important; -webkit-transition: .3s ease-in-out;-o-transition: .3s ease-in-out;transition: .3s ease-in-out;}
+.social-icon:hover{color:#202020 !important; background: #5bcd68 !important; -webkit-transition: .3s ease-in-out;-o-transition: .3s ease-in-out;transition: .3s ease-in-out;}
 
 /* ===================================
         Header
@@ -249,7 +249,7 @@ section{padding: 0;}
 }
 
 .other-page .navbar-top-default{
-    background-color: #dabd1d;
+    background-color: #adebb3;
 }
 
 .header-appear .navbar-top-default {
@@ -297,12 +297,12 @@ section{padding: 0;}
 }
 
 .header-appear .nav-box-round .navbar-nav .nav-link.active{
-    background-color: #dabd1d;
+    background-color: #adebb3;
     color: #ffffff !important;
 }
 
 .header-appear .nav-box-round .navbar-nav .nav-link:hover{
-    color: #dabd1d;
+    color: #adebb3;
 }
 
 /*nav line*/
@@ -323,7 +323,7 @@ section{padding: 0;}
 .line:hover:after, .line.active:after {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-color: #dabd1d;
+    border-color: #adebb3;
     -webkit-transition: width 350ms ease-in-out;
     transition: width 350ms ease-in-out;
     width: 100%;
@@ -486,7 +486,7 @@ section{padding: 0;}
 }
 
 .sidemenu_btn:hover span {
-    background: #dabd1d;
+    background: #adebb3;
 }
 
 .sidemenu_btn:hover span:first-child, .sidemenu_btn:hover span:last-child{
@@ -595,7 +595,7 @@ section{padding: 0;}
 .side-nav .navbar-nav .nav-link::after{
     content: "";
     position: absolute;
-    background: #dabd1d;
+    background: #adebb3;
     display: inline-block;
     width: 0;
     height: 4px;
@@ -695,7 +695,7 @@ section{padding: 0;}
 }
 
 .header-appear  .navigation-toggle:hover span {
-    background-color: #ffd700;
+    background-color: #5bcd68;
 }
 
 .sidebar_btn {
@@ -707,7 +707,7 @@ section{padding: 0;}
 ====================================== */
 
 #pp-nav li .active span, .pp-slidesNav .active span {
-    background-color: #ffd700;
+    background-color: #5bcd68;
 }
 
 #pp-nav span, .pp-slidesNav span {
@@ -843,7 +843,7 @@ section{padding: 0;}
     content: "";
     height: 25px;
     width: 25px;
-    background-color: #ffd700;
+    background-color: #5bcd68;
     border-radius: 50%;
     position: absolute;
     top: 5px;
@@ -969,7 +969,7 @@ section{padding: 0;}
     list-style: none;
 }
 .cd-timeline-navigation a:hover {
-    border-color:#dabd1d;
+    border-color:#adebb3;
 }
 .cd-horizontal-timeline a, .cd-horizontal-timeline a:hover, .cd-horizontal-timeline a:focus{ color:#ffffff;}
 
@@ -1050,7 +1050,7 @@ section{padding: 0;}
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #dabd1d;
+    background-color: #adebb3;
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
     -ms-transform: scaleX(0);
@@ -1107,12 +1107,12 @@ section{padding: 0;}
     pointer-events: none;
 }
 .cd-horizontal-timeline .events a.selected::after {
-    background-color: #dabd1d;
-    border-color: #dabd1d;
+    background-color: #adebb3;
+    border-color: #adebb3;
 }
 .cd-horizontal-timeline .events a.older-event::after {
-    border-color: #dabd1d;
-    background-color: #dabd1d;
+    border-color: #adebb3;
+    background-color: #adebb3;
 }
 @media only screen and (min-width: 1100px) {
     .cd-horizontal-timeline::before {
@@ -1169,7 +1169,7 @@ section{padding: 0;}
     right: 0;
 }
 .no-touch .cd-timeline-navigation a:hover {
-    border-color: #dabd1d;
+    border-color: #adebb3;
 }
 .cd-timeline-navigation a.inactive {
     cursor: not-allowed;
@@ -1531,8 +1531,8 @@ section{padding: 0;}
 }
 
 .circle:hover , .circle:hover i {
-    color: #ffd700;
-    border-color: #ffd700;
+    color: #5bcd68;
+    border-color: #5bcd68;
 }
 
 #team-circle-right {
@@ -1573,7 +1573,7 @@ section{padding: 0;}
 }
 
 .icon-quotes{
-    color: #dabd1d;
+    color: #adebb3;
     font-size: 24px;
     -webkit-transition: .2s ease;
     -o-transition: .2s ease;
@@ -1605,7 +1605,7 @@ section{padding: 0;}
 }
 
 .testimonial-owl button.owl-dot.active {
-    background-color: #dabd1d!important;
+    background-color: #adebb3!important;
 }
 
 /* ===================================
