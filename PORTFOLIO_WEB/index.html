@@ -23,8 +23,6 @@
     <link href="css/owl.carousel.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 
-      <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdaJlgrAAAAAFjLJjoc-iMw2HPcB8BZATvVNy1Z"></script>
-
     <!-- Style Sheet -->
     <link href="css/tootik.min.css" rel="stylesheet">
     <link href="css/line-awesome.min.css" rel="stylesheet">
@@ -59,7 +57,7 @@
             <div class="mega-logo">
                 <!-- <img src="img/stumbleupon copy.png" alt="logo" class="ml-lg-3 m-0"> -->
                 <div class="language-dropdown ms-auto me-3">
-                    <button class="language-button" id="active-language">🌐</button>
+                    <button class="language-button" id="active-language" onclick="toggleLanguageMenu()">🌐</button>
                     <div class="language-options">
                         <button onclick="setLanguage('es')">🇪🇸 <span>Español</span></button>
                         <button onclick="setLanguage('en')">🇺🇸 <span>English</span></button>
@@ -94,6 +92,15 @@
                 <a href="#home" title="Logo" class="logo navbar-brand">
                     <!-- <img src="img/stumbleupon copy.png" alt="logo"> -->
                 </a>
+                <div class="language-sidebar mt-4 text-center">
+                    <p class="text-white mb-2">🌐 Lenguage:</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button onclick="setLanguage('es')" class="btn-lang">🇪🇸</button>
+                        <button onclick="setLanguage('en')" class="btn-lang">🇺🇸</button>
+                        <button onclick="setLanguage('pt')" class="btn-lang">🇧🇷</button>
+                    </div>
+                </div>
+
                 <ul class="navbar-nav text-capitalize">
                     <li class="nav-item">   
                         <a class="nav-link" href="#home">Home</a>
@@ -188,7 +195,11 @@
                 </span>
             </div>
 
-
+            <!-- <div class="circle-four" style="top: 30%; left: 50%;">
+                <span data-tootik="Testimonials" data-tootik-conf="bottom dark square shadow">
+                    <a href="#testimonial"><span class="animated-circle position-relative"></span></a>
+                </span>
+            </div> -->
             <div class="circle-five" style="top: 30%; left: 50%;">
                 <span data-tootik="Contact" data-tootik-conf="bottom dark square shadow">
                     <a href="#contact"><span class="animated-circle position-relative"></span></a>
@@ -859,17 +870,25 @@
 <!-- START CONTACT -->
 <section class="section slide5 contact-bg" id="contact">
     <div class="container">
-        <div class="row pb-5">
+        <div class="row pb-5 align-items-center">
             <div class="col-12 col-md-7">
                 <h3 class="main-font text-uppercase">
-                    <span class="text-yellow d-block text-uppercase" id="contact-title">Contáctame</span> 
+                    <span class="text-yellow d-block text-uppercase" id="contact-title">Contáctame</span>
                     <span id="contact-subtitle">Pongámonos en contacto</span>
                 </h3>
-                <p class="py-2 alt-font" id="contact-availability">Estoy disponible para proyectos acordes a mis habilidades.</p>
+                <p class="py-2 alt-font" id="contact-availability">
+                    Estoy disponible para proyectos acordes a mis habilidades.
+                </p>
             </div>
-            <div class="col-10 col-md-4 text-md-right pt-4 pt-md-0">
-                <h2 class="m-0 text-yellow main-font font-weight-bold">jbautistaclavijo@gmail.com</h2>
-                <p class="alt-font" id="contact-method">Mi correo electrónico</p>
+
+            <div class="col-12 col-md-5 text-md-end text-center pt-4 pt-md-0 position-relative">
+                <div class="email-container d-inline-block position-relative" onclick="copyEmail()" role="button">
+                    <h2 class="m-auto text-yellow main-font font-weight-bold email-copy" onclick="copyEmail()" role="button">
+                        <span class="email-user">jbautistaclavijo</span><span class="email-domain">@gmail.com</span>
+                    </h2>
+                    <div id="copy-tooltip" class="tooltip-copy" role="tooltip">¡Copiado al portapapeles!</div>
+                    <p class="alt-font mt-2 mb-0 email-description" id="contact-method">Mi correo electrónico</p>
+                </div>
             </div>
         </div>
         <form class="contact-form" id="contact-form">
@@ -947,6 +966,7 @@
 <script src="js/contact_us.js"></script>
 <script src="js/script.js"></script>
 <script>
+
     const phrases = ["Frontend Developer", "Backend Developer", "Software Developer"];
     let currentPhrase = 0;
     let currentLetter = 0;
@@ -977,7 +997,26 @@
     document.addEventListener("DOMContentLoaded", () => {
         if (phrases.length) setTimeout(type, 500);
     });
+
 </script>
+
+<script>
+    function toggleLanguageMenu() {
+        const options = document.querySelector('.language-options');
+        options.classList.toggle('show');
+    }
+
+    // Opcional: cerrar si se hace clic fuera
+    document.addEventListener('click', function (e) {
+        const button = document.getElementById('active-language');
+        const menu = document.querySelector('.language-options');
+
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove('show');
+        }
+    });
+</script>
+
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 

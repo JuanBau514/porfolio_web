@@ -221,16 +221,32 @@ jQuery(function ($) {
     });*/
 });
 
+    // Idiomas disponibles
+    const copyMessages = {
+    es: "¡Copiado al portapapeles!",
+    en: "Copied to clipboard!",
+    pt: "Copiado para a área de transferência!"
+};
 
+    function getCurrentLanguage() {
+    // Puedes personalizar esto si usas i18n o detectar de otra forma
+    return document.documentElement.lang || 'es'; // Fallback español
+}
 
+    function copyEmail() {
+    const email = "jbautistaclavijo@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+    const tooltip = document.getElementById("copy-tooltip");
+    const lang = getCurrentLanguage();
+    tooltip.textContent = copyMessages[lang] || copyMessages['es'];
 
+    tooltip.classList.add("show");
 
-
-
-
-
-
-
+    setTimeout(() => {
+    tooltip.classList.remove("show");
+}, 2000);
+});
+}
 
 /*===================================
         animation
