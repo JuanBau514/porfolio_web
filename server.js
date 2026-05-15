@@ -51,12 +51,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'PORTFOLIO_WEB')));
 
 // ── Resend — email API sobre HTTPS (Railway bloquea SMTP, no HTTPS) ───────────
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-if (!process.env.RESEND_API_KEY) {
-  console.warn('⚠️  RESEND_API_KEY no configurado — emails deshabilitados');
-} else {
+// Inicialización lazy: no lanza si la key falta (útil en dev local sin .env)
+let resend = null;
+if (process.env.RESEND_API_KEY) {
+  resend = new Resend(process.env.RESEND_API_KEY);
   console.log('✅ Resend listo — correos habilitados');
+} else {
+  console.warn('⚠️  RESEND_API_KEY no configurado — emails deshabilitados');
 }
 
 // ── reCAPTCHA ─────────────────────────────────────────────────────────────────
@@ -87,6 +88,10 @@ app.post('/api/contact', async (req, res) => {
   console.log('📩 Contacto de:', req.body?.email);
 
   try {
+    if (!resend) {
+      return res.status(503).json({ success: false, error: 'Servicio de email no configurado (RESEND_API_KEY faltante)' });
+    }
+
     const { name, email, phone = '', message, 'g-recaptcha-response': token } = req.body;
 
     if (!name || !email || !message) {
@@ -163,6 +168,7 @@ app.get('/api/test', (req, res) => {
 
 // ── GET /api/test-email — envía un correo de prueba directo ──────────────────
 app.get('/api/test-email', async (req, res) => {
+  if (!resend) return res.status(503).json({ success: false, error: 'RESEND_API_KEY no configurado' });
   try {
     const { error } = await resend.emails.send({
       from: 'Portfolio Test <noreply@juanpablobautista.dev>',
