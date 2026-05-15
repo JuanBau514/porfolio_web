@@ -1,6 +1,8 @@
 {
+  "packageManager": "pnpm@11.1.2",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "cors": "^2.8.5",
