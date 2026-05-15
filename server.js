@@ -2,14 +2,41 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const fetch = require('node-fetch');
-const path = require('path'); // ← IMPORTANTE para rutas
+const path = require('path');
 
 const app = express();
 
-// CORS
+// ── Security headers (CSP off para no romper scripts inline) ──────────────────
+app.use(helmet({ contentSecurityPolicy: false }));
+
+// ── Rate limiting en rutas API ────────────────────────────────────────────────
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, error: 'Demasiados intentos. Intenta de nuevo en 15 minutos.' }
+});
+app.use('/api/', apiLimiter);
+
+// ── CORS ──────────────────────────────────────────────────────────────────────
+const allowedOrigins = [
+  'http://127.0.0.1:5500',
+  'http://localhost:3000',
+  'http://127.0.0.1:3001',
+  'http://localhost:3001',
+  'https://porfolioweb-production.up.railway.app'
+];
+
 app.use(cors({
-  origin: ['http://127.0.0.1:5500', 'http://localhost:3000', 'http://127.0.0.1:3001', 'http://localhost:3001'],
+  origin: function (origin, callback) {
+    // Permitir peticiones sin origin (same-origin, Postman, curl)
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    callback(new Error('Not allowed by CORS'));
+  },
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -17,21 +44,38 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 🔧 Servir archivos estáticos del frontend
-app.use(express.static(path.join(__dirname, 'PORTFOLIO_WEB'))); // Asegúrate que esta sea la carpeta correcta
+// ── Static files ──────────────────────────────────────────────────────────────
+app.use(express.static(path.join(__dirname, 'PORTFOLIO_WEB')));
 
-// Configuración de Nodemailer
+// ── Nodemailer — SMTP explícito (más confiable que service:'gmail') ────────────
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_APP_PASSWORD
+  },
+  tls: { rejectUnauthorized: false }
+});
+
+// Verificar conexión SMTP al arrancar
+transporter.verify((error) => {
+  if (error) {
+    console.error('⚠️  SMTP no disponible:', error.message);
+    console.error('   Verifica EMAIL_USER y EMAIL_APP_PASSWORD en las variables de entorno');
+  } else {
+    console.log('✅ SMTP listo — correos habilitados');
   }
 });
 
-// reCAPTCHA
+// ── reCAPTCHA ─────────────────────────────────────────────────────────────────
 async function verifyRecaptcha(token) {
-  if (!token || !process.env.RECAPTCHA_SECRET_KEY) return false;
+  if (!process.env.RECAPTCHA_SECRET_KEY) {
+    console.warn('⚠️  RECAPTCHA_SECRET_KEY no configurado — verificación omitida');
+    return true;
+  }
+  if (!token) return false;
 
   try {
     const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -40,87 +84,127 @@ async function verifyRecaptcha(token) {
       body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`
     });
     const data = await response.json();
+    if (!data.success) console.warn('reCAPTCHA rechazado:', data['error-codes']);
     return data.success;
-  } catch (error) {
-    console.error('Error verificando reCAPTCHA:', error);
+  } catch (err) {
+    console.error('Error verificando reCAPTCHA:', err.message);
     return false;
   }
 }
 
-// POST contacto
+// ── POST /api/contact ─────────────────────────────────────────────────────────
 app.post('/api/contact', async (req, res) => {
-  console.log('Body recibido:', req.body);
+  console.log('📩 Contacto de:', req.body?.email);
 
   try {
     const { name, email, phone = '', message, 'g-recaptcha-response': token } = req.body;
 
-    if (!name || !email || !message || !token) {
-      return res.status(400).json({ 
-        success: false,
-        error: 'Todos los campos son requeridos' 
-      });
+    if (!name || !email || !message) {
+      return res.status(400).json({ success: false, error: 'Nombre, email y mensaje son requeridos' });
+    }
+
+    if (!token) {
+      return res.status(400).json({ success: false, error: 'Token reCAPTCHA faltante' });
     }
 
     const recaptchaValid = await verifyRecaptcha(token);
     if (!recaptchaValid) {
-      return res.status(400).json({ 
-        success: false,
-        error: 'Verificación reCAPTCHA fallida' 
-      });
+      return res.status(400).json({ success: false, error: 'Verificación reCAPTCHA fallida' });
     }
 
-    const mailOptions = {
-      from: `"Portfolio Contacto" <${process.env.EMAIL_USER}>`,
+    await transporter.sendMail({
+      from: `"Portfolio — Juan Pablo" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
-      subject: `Nuevo mensaje de ${name}`,
-      text: `
-        Nombre: ${name}
-        Email: ${email}
-        Teléfono: ${phone || 'No proporcionado'}
-        Mensaje: ${message}
-      `,
+      replyTo: email,
+      subject: `[Portfolio] Mensaje de ${name}`,
       html: `
-        <h2>Nuevo mensaje de contacto</h2>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${phone || 'No proporcionado'}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
+          <h2 style="color:#333;border-bottom:2px solid #f0c040;padding-bottom:8px">
+            Nuevo mensaje de contacto
+          </h2>
+          <table style="width:100%;border-collapse:collapse;font-size:14px">
+            <tr style="background:#f9f9f9">
+              <td style="padding:8px 12px;font-weight:bold;width:120px">Nombre</td>
+              <td style="padding:8px 12px">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;font-weight:bold">Email</td>
+              <td style="padding:8px 12px"><a href="mailto:${email}">${email}</a></td>
+            </tr>
+            <tr style="background:#f9f9f9">
+              <td style="padding:8px 12px;font-weight:bold">Teléfono</td>
+              <td style="padding:8px 12px">${phone || 'No proporcionado'}</td>
+            </tr>
+          </table>
+          <div style="margin-top:20px;padding:16px;background:#f9f9f9;border-left:4px solid #f0c040;font-size:14px">
+            ${message.replace(/\n/g, '<br>')}
+          </div>
+          <p style="font-size:11px;color:#999;margin-top:24px">
+            Enviado desde el portfolio — porfolioweb-production.up.railway.app
+          </p>
+        </div>
       `
-    };
-
-    await transporter.sendMail(mailOptions);
-    
-    res.json({ 
-      success: true, 
-      message: 'Mensaje enviado correctamente' 
     });
 
+    res.json({ success: true, message: 'Mensaje enviado correctamente' });
+
   } catch (error) {
-    console.error('Error en /api/contact:', error);
-    res.status(500).json({ 
+    console.error('Error en /api/contact:', error.message);
+    res.status(500).json({
       success: false,
-      error: 'Error interno del servidor',
-      details: error.message 
+      error: 'Error al enviar el mensaje. Por favor intenta de nuevo.',
+      details: process.env.NODE_ENV !== 'production' ? error.message : undefined
     });
   }
 });
 
-// Ruta test
-app.get('/api/test', (req, res) => {
+// ── GET /api/test — diagnóstico rápido ────────────────────────────────────────
+app.get('/api/test', async (req, res) => {
+  let smtpOk = false;
+  let smtpError = null;
+  try {
+    await transporter.verify();
+    smtpOk = true;
+  } catch (e) {
+    smtpError = e.message;
+  }
+
   res.json({
     status: 'Servidor funcionando',
-    emailConfigured: !!process.env.EMAIL_USER
+    emailConfigured: !!process.env.EMAIL_USER,
+    emailUser: process.env.EMAIL_USER || null,
+    smtpReady: smtpOk,
+    smtpError,
+    recaptchaConfigured: !!process.env.RECAPTCHA_SECRET_KEY
   });
 });
 
-// 🏠 Catch-all para servir index.html en producción
+// ── GET /api/test-email — envía un correo de prueba directo ──────────────────
+app.get('/api/test-email', async (req, res) => {
+  try {
+    await transporter.sendMail({
+      from: `"Portfolio Test" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      replyTo: process.env.EMAIL_USER,
+      subject: '[Portfolio] Test de envío de correo',
+      html: '<p>✅ El sistema de correo del portfolio funciona correctamente.</p>'
+    });
+    res.json({ success: true, message: 'Email enviado a ' + process.env.EMAIL_USER });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
+// ── Catch-all → index.html ────────────────────────────────────────────────────
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'PORTFOLIO_WEB', 'index.html'));
 });
 
-// Iniciar servidor
+// ── Iniciar ───────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Servidor iniciado en http://localhost:${PORT}`);
+  console.log(`\n🚀 Servidor en http://localhost:${PORT}`);
+  console.log(`   EMAIL_USER        : ${process.env.EMAIL_USER        || '⚠️  no configurado'}`);
+  console.log(`   EMAIL_APP_PASSWORD: ${process.env.EMAIL_APP_PASSWORD ? '✅ configurado' : '⚠️  no configurado'}`);
+  console.log(`   RECAPTCHA_SECRET  : ${process.env.RECAPTCHA_SECRET_KEY ? '✅ configurado' : '⚠️  no configurado'}`);
 });

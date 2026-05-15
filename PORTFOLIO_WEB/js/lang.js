@@ -5,22 +5,24 @@ const translations = {
     description: "Desarrollador Full Stack e Ingeniero de Software enfocado en IA, con experiencia construyendo productos digitales escalables en entornos reales de producción en EE.UU. y LATAM. Especializado en JavaScript, TypeScript, React, Next.js y Node.js — con enfoque en arquitectura backend, diseño de sistemas y soluciones sólidas a lo largo de todo el ciclo de desarrollo.",
     jobTitle1: "Desarrollador Full Stack &",
     jobTitle2: "Ingeniero de Software | IA",
-    specialization: "Especializado en JavaScript, TypeScript, React, Next.js, Node.js y automatización con IA.",
+    specialization: "Especializado en JavaScript, TypeScript, React, Next.js, Node.js, Python y automatización empresarial con IA.",
     experienceText: "Años de Experiencia",
-    skill1: "DESARROLLO WEB",
-    skillDesc1: "Desarrollo de interfaces con React.js, Next.js y Laravel. Creación de APIs RESTful con Spring Boot y PHP.",
-    skill2: "DESARROLLO MÓVIL",
-    skillDesc2: "Desarrollo de aplicaciones Android nativas con Kotlin. Integración con APIs y servicios en la nube.",
-    skill3: "AUTOMATIZACIÓN",
-    skillDesc3: "Web scraping, procesamiento de datos con expresiones regulares y automatización de procesos.",
-    skill4: "BASES DE DATOS",
-    skillDesc4: "Diseño e implementación de bases de datos en PostgreSQL, MySQL y MongoDB.",
-    progress1: "JavaScript/React.js",
-    progress2: "Laravel/PHP",
-    progress3: "Kotlin/Android",
-    progress4: "PostgreSQL/MySQL",
-    progress5: "Spring Boot/Node.js",
-    progress6: "Docker/Git",
+    skill1: "DESARROLLO WEB & BACKEND",
+    skillDesc1: "Aplicaciones web full stack con React, Next.js y Node.js. APIs escalables con GraphQL, REST, TypeScript y arquitecturas orientadas a servicios.",
+    skill2: "IA & AUTOMATIZACIÓN",
+    skillDesc2: "Flujos de automatización empresarial con Make.com e integraciones de APIs de IA. Agentes conversacionales, pipelines de datos y sistemas de routing inteligente para WhatsApp y CRMs.",
+    skill3: "INFRAESTRUCTURA & DATOS",
+    skillDesc3: "Diseño e implementación de bases de datos en PostgreSQL, MySQL y MongoDB. Entornos containerizados con Docker, deployments en Railway y AWS.",
+    skill4: "SISTEMAS & SOFTWARE LIBRE",
+    skillDesc4: "Desarrollo en entornos GNU/Linux (Fedora, Ubuntu, Debian) como sistema principal. Web scraping, procesamiento de datos, automatización de procesos y herramientas CLI.",
+    progress1: "JavaScript / TypeScript",
+    progress2: "React.js / Next.js",
+    progress3: "Node.js / Express / Nest.js",
+    progress4: "PostgreSQL / MySQL",
+    progress5: "Python / FastAPI",
+    progress6: "Make.com / Automatización",
+    progress7: "Docker / Git / Linux",
+    progress8: "GraphQL / Prisma ORM",
       contactTitle: "Contáctame",
     contactSubtitle: "Pongámonos en contacto",
     contactAvailability: "Estoy disponible para proyectos acordes a mis habilidades.",
@@ -38,11 +40,13 @@ const translations = {
   },
 
   timeline2022: {
-  title: "Consolidación en Programación y Software Libre",
-  headingSubjects: "Áreas de estudio",
-  headingAchievements: "Logros personales",
-  subjects: "Profundicé mis conocimientos en programación estructurada y orientada a objetos, desarrollando sistemas en C y C++ con estructuras de datos.",
-  achievements: "Participé en eventos como FLISoL, aprendí instalaciones básicas con Debian y Ubuntu, y experimenté con distribuciones como Fedora, Manjaro y Garuda. También me familiaricé con la configuración de servidores en entornos GNU/Linux."
+    title: "Consolidación en Programación y Software Libre",
+    headingSubjects: "Áreas de estudio",
+    subjects: "Profundicé en programación estructurada y orientada a objetos, desarrollando sistemas en C y C++ con estructuras de datos complejas. Comencé a adoptar el ecosistema GNU/Linux como entorno principal de desarrollo.",
+    headingAchievements: "Linux & Software Libre",
+    achievements: "Participé en eventos como FLISoL. Experimenté con distribuciones como Debian, Ubuntu, Fedora, Manjaro y Garuda. Aprendí administración básica de servidores en entornos GNU/Linux. Desde entonces uso Linux como sistema operativo principal — actualmente Fedora en un Lenovo IdeaPad Gaming 3 con setup híbrido NVIDIA/Intel, configurado para desarrollo full stack y cargas de IA.",
+    headingPhilosophy: "Filosofía adoptada",
+    philosophy: "El trabajo con software libre me formó con una mentalidad de entender los sistemas desde sus fundamentos, preferir herramientas abiertas y reproducibles, y trabajar en entornos de desarrollo controlados y auditables."
   },
   careerSection: {
     title1: "Mi Carrera",
@@ -86,17 +90,33 @@ const translations = {
     headingStack: "Tech Stack",
     stack: "TypeScript, Node.js, GraphQL, Prisma ORM, React, Next.js, MySQL, Redis, Docker"
   },
+  timelineProyectos: {
+    title: "Proyectos Libres, Open Source & AI Annotation",
+    headingCompany: "Trabajo paralelo a los contratos",
+    company: "En paralelo a mis roles formales, mantuve actividad continua en proyectos personales y freelance: arquitecturas Supabase + React, análisis de vulnerabilidades de seguridad (RLS misconfiguration, SSRF, CWE-602), diseño de sistemas con Docker, CI/CD en Railway y configuración avanzada de entornos GNU/Linux.",
+    headingTasks: "AI Annotation — AnyoneAI",
+    tasks: "Colaboré como anotador técnico en tareas de entrenamiento de modelos de IA (NES — Next Edit Suggestions) para AnyoneAI. Trabajo enfocado en edición de código C++, detección de patrones y renombrado de variables, evaluando calidad de sugerencias de modelos de lenguaje usando criterios de taxonomía estructurada.",
+    headingStack: "Stack explorado",
+    stack: "Supabase, PostgreSQL RLS, Railway, GitHub Actions, C++, VS Code Insiders, Cursor, Python scripting"
+  },
   timeline2026: {
-  title: "Graduación y Nuevos Horizontes Profesionales",
-  headingSubjects: "Cierre académico",
-  headingAchievements: "Fortalezas actuales",
-  headingLearnings: "Lo aprendido",
-  headingNext: "Próximos pasos",
-  subjects: "Graduado en Tecnología en Sistematización de Datos. Experiencia acumulada en desarrollo Android, Laravel, Next.js, APIs y bases de datos.",
-  achievements: "Perfil sólido como Full Stack Developer y Android Developer. Capacidad de desarrollo completo desde el frontend al backend en entornos reales.",
-  learnings: "Profundización en arquitectura web, automatización, trabajo en equipo remoto, integración de servicios, y desarrollo de apps conectadas.",
-  next: "Aprender Python para automatización avanzada e IA, mejorar en Spring Boot, retomar desarrollo en C/C++ y explorar DevOps, testing y software multiplataforma."
-},
+    title: "Graduación & Perfil Profesional Consolidado",
+    headingSubjects: "Cierre académico",
+    subjects: "Graduado en Tecnología en Sistematización de Datos, Universidad Distrital Francisco José de Caldas. Proyecto de grado: automatización del proceso de homologación académica mediante web scraping y reconocimiento de patrones.",
+    headingAchievements: "Perfil actual",
+    achievements: "Full Stack Developer e Ingeniero de IA con más de 3 años de experiencia en producción. Stack consolidado en TypeScript, Node.js, React, Next.js, Python, FastAPI, GraphQL, PostgreSQL y Docker. Experiencia adicional en automatización empresarial con Make.com, integración de APIs de IA y diseño de agentes conversacionales.",
+    headingLearnings: "Horizonte profesional",
+    learnings: "Enfocado en roles remotos internacionales como Full Stack Developer o AI Engineer. Activo en proyectos de automatización empresarial, arquitectura de agentes de IA y desarrollo de productos digitales. Linux como herramienta diaria de trabajo."
+  },
+  timelineAikonversa: {
+    title: "Aikonversa — Automatización Empresarial con IA",
+    headingCompany: "Proyecto",
+    company: "Trabajo freelance con aikonversa.com, diseñando e implementando flujos de automatización empresarial para campañas de captación y gestión de leads en WhatsApp, integrando plataformas de mensajería, CRM y anuncios digitales.",
+    headingTasks: "Automatizaciones implementadas",
+    tasks: "Pipeline completo TikTok Ads → Respond.io para captura y enriquecimiento automático de leads. Sistema de broadcasts masivos en WhatsApp con segmentación dinámica de contactos. Flujo de routing con agente de IA para calificación y derivación de prospectos a asesores humanos. Agente recepcionista de IA con base de conocimiento estructurada sobre productos y precios.",
+    headingStack: "Tech Stack",
+    stack: "Make.com, Respond.io, Meta Business API, WhatsApp Cloud API, TikTok Lead Ads API, HTTP/REST modules, AI Agents (LLM-based)"
+  },
 portfolio: {
   title: "Portafolio",
   subtitle: "Mis trabajos recientes",
@@ -107,8 +127,13 @@ portfolio: {
   game2048Description: "Juego nativo desarrollado en Kotlin para Android. Integra Firebase para almacenar los puntajes más altos en la nube y permite competir entre jugadores.",
   ecommerceDescription: "Proyecto E-commerce con frontend en HTML, CSS y JavaScript. Backend construido con Java Spring Boot mediante API REST, integrando ambas capas mediante objetos JSON.",
   gregDescription: "Sitio web profesional para real estate con integración de Google Maps, formularios, geolocalización y sistema multilenguaje en tiempo real.",
-  homologacionesDescription: "Aplicación desarrollada en React (frontend) y Node.js (backend), pensada para ser ligera, portable y fácil de desplegar. Automatiza el proceso académico de homologación entre instituciones."
-
+  homologacionesDescription: "Aplicación desarrollada en React (frontend) y Node.js (backend), pensada para ser ligera, portable y fácil de desplegar. Automatiza el proceso académico de homologación entre instituciones.",
+  aikonversaDescription: "Agencia de desarrollo web y automatización con IA para LATAM. Sitios web profesionales con chatbot de WhatsApp, integraciones y soluciones digitales entregadas en 48 horas.",
+  recitoDescription: "Sitio web para restaurante y bar de entretenimiento en Medellín. Sistema de reservas, integración con WhatsApp Business, calendario de eventos y galería interactiva.",
+  integradocgtDescription: "Plataforma B2B de gestión documental y digitalización para empresas en Guatemala. Firma electrónica, cumplimiento DTE/FEL, integración con DocuWare y automatización de flujos documentales.",
+  claiconDescription: "E-commerce para marca colombiana de accesorios artesanales. Catálogo de productos con galería visual, integración de contacto y diseño orientado a conversión.",
+  conexiongtDescription: "Plataforma bilingüe de servicios legales que conecta clientes en EE. UU. (Phoenix) con abogados en Guatemala. Gestión de trámites, autenticación de documentos y apostillas sin necesidad de viajar.",
+  truenorthDescription: "Sitio web para empresa de construcción residencial en South Carolina, EE. UU. Búsqueda de propiedades, portafolio de proyectos y sistema de contacto integrado."
 }
 
 
@@ -118,22 +143,24 @@ portfolio: {
     name: "Juan Pablo Bautista",
     jobTitle1: "Full Stack Developer &",
     jobTitle2: "Software Engineer | AI",
-    specialization: "Specialized in JavaScript, TypeScript, React, Next.js, Node.js and AI-driven automation.",
+    specialization: "Specialized in JavaScript, TypeScript, React, Next.js, Node.js, Python and enterprise AI automation.",
     experienceText: "Years of Experience",
-    skill1: "WEB DEVELOPMENT",
-    skillDesc1: "Interface development with React.js, Next.js and Laravel. RESTful API creation with Spring Boot and PHP.",
-    skill2: "MOBILE DEVELOPMENT",
-    skillDesc2: "Native Android app development with Kotlin. Integration with APIs and cloud services.",
-    skill3: "AUTOMATION",
-    skillDesc3: "Web scraping, data processing with regular expressions and process automation.",
-    skill4: "DATABASES",
-    skillDesc4: "Database design and implementation with PostgreSQL, MySQL and MongoDB.",
-    progress1: "JavaScript/React.js",
-    progress2: "Laravel/PHP",
-    progress3: "Kotlin/Android",
-    progress4: "PostgreSQL/MySQL",
-    progress5: "Spring Boot/Node.js",
-    progress6: "Docker/Git",
+    skill1: "WEB & BACKEND DEVELOPMENT",
+    skillDesc1: "Full stack web applications with React, Next.js and Node.js. Scalable APIs with GraphQL, REST, TypeScript and service-oriented architectures.",
+    skill2: "AI & AUTOMATION",
+    skillDesc2: "Enterprise automation workflows with Make.com and AI API integrations. Conversational agents, data pipelines and intelligent routing systems for WhatsApp and CRMs.",
+    skill3: "INFRASTRUCTURE & DATA",
+    skillDesc3: "Database design and implementation with PostgreSQL, MySQL and MongoDB. Containerized environments with Docker, deployments on Railway and AWS.",
+    skill4: "SYSTEMS & FREE SOFTWARE",
+    skillDesc4: "Development in GNU/Linux environments (Fedora, Ubuntu, Debian) as main OS. Web scraping, data processing, process automation and CLI tools.",
+    progress1: "JavaScript / TypeScript",
+    progress2: "React.js / Next.js",
+    progress3: "Node.js / Express / Nest.js",
+    progress4: "PostgreSQL / MySQL",
+    progress5: "Python / FastAPI",
+    progress6: "Make.com / Automation",
+    progress7: "Docker / Git / Linux",
+    progress8: "GraphQL / Prisma ORM",
     description: "Full Stack Developer and AI Software Engineer with experience building scalable digital products in real production environments across the US and LATAM. Core expertise in JavaScript, TypeScript, React, Next.js and Node.js — focused on backend architecture, clean system design, and delivering reliable solutions across the full development lifecycle.",
     contactTitle: "Contact Me",
     contactSubtitle: "Let's Get In Touch",
@@ -153,9 +180,11 @@ portfolio: {
     timeline2022: {
       title: "Programming Consolidation and Free Software",
       headingSubjects: "Subjects of Study",
-      headingAchievements: "Personal Achievements",
-      subjects: "I deepened my knowledge in structured and object-oriented programming, developing systems in C and C++ using data structures.",
-      achievements: "I participated in events like FLISoL, learned basic installations with Debian and Ubuntu, and explored distributions such as Fedora, Manjaro, and Garuda. I also gained experience configuring servers in GNU/Linux environments."
+      subjects: "I deepened my knowledge in structured and object-oriented programming, developing systems in C and C++ with complex data structures. I began adopting the GNU/Linux ecosystem as my main development environment.",
+      headingAchievements: "Linux & Free Software",
+      achievements: "I participated in events like FLISoL. I experimented with distributions such as Debian, Ubuntu, Fedora, Manjaro and Garuda. I learned basic server administration in GNU/Linux environments. Since then I use Linux as my main OS — currently Fedora on a Lenovo IdeaPad Gaming 3 with a hybrid NVIDIA/Intel setup, configured for full stack development and AI workloads.",
+      headingPhilosophy: "Adopted philosophy",
+      philosophy: "Working with free software shaped my mindset to understand systems from their foundations, prefer open and reproducible tools, and work in controlled and auditable development environments."
     },
     careerSection: {
     title1: "My Career",
@@ -199,17 +228,33 @@ portfolio: {
     headingStack: "Tech Stack",
     stack: "TypeScript, Node.js, GraphQL, Prisma ORM, React, Next.js, MySQL, Redis, Docker"
   },
+  timelineProyectos: {
+    title: "Open Source Projects & AI Annotation",
+    headingCompany: "Work alongside contracts",
+    company: "In parallel with my formal roles, I maintained continuous activity in personal and freelance projects: Supabase + React architectures, security vulnerability analysis (RLS misconfiguration, SSRF, CWE-602), Docker system design, CI/CD on Railway and advanced GNU/Linux environment configuration.",
+    headingTasks: "AI Annotation — AnyoneAI",
+    tasks: "Contributed as a technical annotator for AI model training tasks (NES — Next Edit Suggestions) at AnyoneAI. Work focused on C++ code editing, pattern detection and variable renaming, evaluating language model suggestion quality using structured taxonomy criteria.",
+    headingStack: "Stack explored",
+    stack: "Supabase, PostgreSQL RLS, Railway, GitHub Actions, C++, VS Code Insiders, Cursor, Python scripting"
+  },
   timeline2026: {
-  title: "Graduation and New Professional Goals",
-  headingSubjects: "Academic Completion",
-  headingAchievements: "Current Strengths",
-  headingLearnings: "What I Learned",
-  headingNext: "Next Steps",
-  subjects: "Graduated in Data Systematization Technology. Accumulated experience in Android development, Laravel, Next.js, APIs and databases.",
-  achievements: "Strong profile as a Full Stack and Android Developer. Capable of complete development from frontend to backend in real-world environments.",
-  learnings: "Deepened knowledge in web architecture, automation, remote teamwork, service integration, and connected app development.",
-  next: "Learn Python for advanced automation and AI, improve Spring Boot skills, return to C/C++ systems and explore DevOps, testing, and cross-platform software."
-},
+    title: "Graduation & Consolidated Professional Profile",
+    headingSubjects: "Academic completion",
+    subjects: "Graduated in Data Systematization Technology, Universidad Distrital Francisco José de Caldas. Thesis project: automation of the academic equivalency process using web scraping and pattern recognition.",
+    headingAchievements: "Current profile",
+    achievements: "Full Stack Developer and AI Engineer with 3+ years of production experience. Consolidated stack in TypeScript, Node.js, React, Next.js, Python, FastAPI, GraphQL, PostgreSQL and Docker. Additional experience in enterprise automation with Make.com, AI API integration and conversational agent design.",
+    headingLearnings: "Professional horizon",
+    learnings: "Focused on international remote roles as Full Stack Developer or AI Engineer. Active in enterprise automation projects, AI agent architecture and digital product development. Linux as daily work tool."
+  },
+  timelineAikonversa: {
+    title: "Aikonversa — Enterprise AI Automation",
+    headingCompany: "Project",
+    company: "Freelance work with aikonversa.com, designing and implementing enterprise automation workflows for lead capture and management campaigns on WhatsApp, integrating messaging platforms, CRM and digital advertising.",
+    headingTasks: "Implemented automations",
+    tasks: "Full TikTok Ads → Respond.io pipeline for automatic lead capture and enrichment. Mass WhatsApp broadcast system with dynamic contact segmentation. AI agent routing flow for qualifying and routing prospects to human advisors. AI receptionist agent with structured knowledge base on products and prices.",
+    headingStack: "Tech Stack",
+    stack: "Make.com, Respond.io, Meta Business API, WhatsApp Cloud API, TikTok Lead Ads API, HTTP/REST modules, AI Agents (LLM-based)"
+  },
 portfolio: {
   title: "Portfolio",
   subtitle: "My Recent Work",
@@ -220,8 +265,13 @@ portfolio: {
   game2048Description: "Native game developed in Kotlin for Android. It integrates Firebase to store high scores in the cloud, enabling competition between players.",
   ecommerceDescription: "E-commerce project with frontend built in HTML, CSS, and JavaScript. Backend powered by Java Spring Boot REST APIs, integrated via JSON objects.",
   gregDescription: "Professional real estate website with Google Maps integration, geolocation, forms, and real-time multilingual support.",
-  homologacionesDescription: "Application built with React (frontend) and Node.js (backend), designed to be lightweight, portable, and easy to deploy. It automates the academic process of course equivalency between institutions."
-
+  homologacionesDescription: "Application built with React (frontend) and Node.js (backend), designed to be lightweight, portable, and easy to deploy. It automates the academic process of course equivalency between institutions.",
+  aikonversaDescription: "Web development and AI automation agency for LATAM. Professional websites with WhatsApp chatbot, integrations, and digital solutions delivered in 48 hours.",
+  recitoDescription: "Website for a restaurant and entertainment bar in Medellín. Reservation system, WhatsApp Business integration, event calendar, and interactive gallery.",
+  integradocgtDescription: "B2B document management and digitalization platform for companies in Guatemala. Electronic signatures, DTE/FEL compliance, DocuWare integration, and document workflow automation.",
+  claiconDescription: "E-commerce for a Colombian handcrafted accessories brand. Product catalog with visual gallery, contact integration, and conversion-focused design.",
+  conexiongtDescription: "Bilingual legal services platform connecting clients in the US (Phoenix) with attorneys in Guatemala. Legal procedure management, document authentication, and apostilles without the need to travel.",
+  truenorthDescription: "Website for a residential construction company in South Carolina, USA. Property search, project portfolio, and integrated contact system."
 },
 
 
@@ -234,22 +284,24 @@ portfolio: {
     description: "Desenvolvedor Full Stack e Engenheiro de Software especializado em IA, com experiência na construção de produtos digitais escaláveis em ambientes reais de produção nos EUA e LATAM. Especializado em JavaScript, TypeScript, React, Next.js e Node.js — com foco em arquitetura backend, design de sistemas e soluções confiáveis ao longo de todo o ciclo de desenvolvimento.",
     jobTitle1: "Desenvolvedor Full Stack &",
     jobTitle2: "Engenheiro de Software | IA",
-    specialization: "Especializado em JavaScript, TypeScript, React, Next.js, Node.js e automação com IA.",
+    specialization: "Especializado em JavaScript, TypeScript, React, Next.js, Node.js, Python e automação empresarial com IA.",
     experienceText: "Anos de Experiência",
-    skill1: "DESENVOLVIMENTO WEB",
-    skillDesc1: "Desenvolvimento de interfaces com React.js, Next.js e Laravel. Criação de APIs RESTful com Spring Boot e PHP.",
-    skill2: "DESENVOLVIMENTO MÓVEL",
-    skillDesc2: "Desenvolvimento de aplicativos Android nativos com Kotlin. Integração com APIs e serviços em nuvem.",
-    skill3: "AUTOMAÇÃO",
-    skillDesc3: "Web scraping, processamento de dados com expressões regulares e automação de processos.",
-    skill4: "BANCOS DE DADOS",
-    skillDesc4: "Projeto e implementação de bancos de dados com PostgreSQL, MySQL e MongoDB.",
-    progress1: "JavaScript/React.js",
-    progress2: "Laravel/PHP",
-    progress3: "Kotlin/Android",
-    progress4: "PostgreSQL/MySQL",
-    progress5: "Spring Boot/Node.js",
-    progress6: "Docker/Git",
+    skill1: "DESENVOLVIMENTO WEB & BACKEND",
+    skillDesc1: "Aplicações web full stack com React, Next.js e Node.js. APIs escaláveis com GraphQL, REST, TypeScript e arquiteturas orientadas a serviços.",
+    skill2: "IA & AUTOMAÇÃO",
+    skillDesc2: "Fluxos de automação empresarial com Make.com e integrações de APIs de IA. Agentes conversacionais, pipelines de dados e sistemas de roteamento inteligente para WhatsApp e CRMs.",
+    skill3: "INFRAESTRUTURA & DADOS",
+    skillDesc3: "Projeto e implementação de bancos de dados com PostgreSQL, MySQL e MongoDB. Ambientes containerizados com Docker, deployments no Railway e AWS.",
+    skill4: "SISTEMAS & SOFTWARE LIVRE",
+    skillDesc4: "Desenvolvimento em ambientes GNU/Linux (Fedora, Ubuntu, Debian) como sistema principal. Web scraping, processamento de dados, automação de processos e ferramentas CLI.",
+    progress1: "JavaScript / TypeScript",
+    progress2: "React.js / Next.js",
+    progress3: "Node.js / Express / Nest.js",
+    progress4: "PostgreSQL / MySQL",
+    progress5: "Python / FastAPI",
+    progress6: "Make.com / Automação",
+    progress7: "Docker / Git / Linux",
+    progress8: "GraphQL / Prisma ORM",
      contactTitle: "Contate-me",
     contactSubtitle: "Vamos entrar em contato",
     contactAvailability: "Estou disponível para projetos de acordo com minhas habilidades.",
@@ -268,9 +320,11 @@ portfolio: {
     timeline2022: {
     title: "Consolidação em Programação e Software Livre",
     headingSubjects: "Áreas de estudo",
-    headingAchievements: "Conquistas pessoais",
-    subjects: "Aprofundei meus conhecimentos em programação estruturada e orientada a objetos, desenvolvendo sistemas em C e C++ com estruturas de dados.",
-    achievements: "Participei de eventos como o FLISoL, aprendi instalações básicas com Debian e Ubuntu e explorei distribuições como Fedora, Manjaro e Garuda. Também adquiri experiência na configuração de servidores em ambientes GNU/Linux."
+    subjects: "Aprofundei meus conhecimentos em programação estruturada e orientada a objetos, desenvolvendo sistemas em C e C++ com estruturas de dados complexas. Comecei a adotar o ecossistema GNU/Linux como principal ambiente de desenvolvimento.",
+    headingAchievements: "Linux & Software Livre",
+    achievements: "Participei de eventos como o FLISoL. Experimentei distribuições como Debian, Ubuntu, Fedora, Manjaro e Garuda. Aprendi administração básica de servidores em ambientes GNU/Linux. Desde então uso Linux como sistema operacional principal — atualmente Fedora em um Lenovo IdeaPad Gaming 3 com configuração híbrida NVIDIA/Intel, configurado para desenvolvimento full stack e cargas de IA.",
+    headingPhilosophy: "Filosofia adotada",
+    philosophy: "O trabalho com software livre me moldou com uma mentalidade de entender os sistemas desde seus fundamentos, preferir ferramentas abertas e reproduzíveis e trabalhar em ambientes de desenvolvimento controlados e auditáveis."
   },
   careerSection: {
     title1: "Minha Carreira",
@@ -314,18 +368,33 @@ portfolio: {
     headingStack: "Tech Stack",
     stack: "TypeScript, Node.js, GraphQL, Prisma ORM, React, Next.js, MySQL, Redis, Docker"
   },
-
-timeline2026: {
-  title: "Graduação e Novos Rumos Profissionais",
-  headingSubjects: "Conclusão Acadêmica",
-  headingAchievements: "Forças Atuais",
-  headingLearnings: "Aprendizados",
-  headingNext: "Próximos Passos",
-  subjects: "Graduado em Tecnologia de Sistematização de Dados. Experiência acumulada em desenvolvimento Android, Laravel, Next.js, APIs e bancos de dados.",
-  achievements: "Perfil sólido como Desenvolvedor Full Stack e Android. Capaz de realizar o desenvolvimento completo do frontend ao backend em ambientes reais.",
-  learnings: "Aprofundamento em arquitetura web, automação, trabalho remoto em equipe, integração de serviços e desenvolvimento de aplicativos conectados.",
-  next: "Aprender Python para automação avançada e IA, melhorar com Spring Boot, retomar sistemas em C/C++ e explorar DevOps, testes e software multiplataforma."
-},
+  timelineProyectos: {
+    title: "Projetos Livres, Open Source & AI Annotation",
+    headingCompany: "Trabalho paralelo aos contratos",
+    company: "Paralelamente aos meus cargos formais, mantive atividade contínua em projetos pessoais e freelance: arquiteturas Supabase + React, análise de vulnerabilidades de segurança (RLS misconfiguration, SSRF, CWE-602), design de sistemas com Docker, CI/CD no Railway e configuração avançada de ambientes GNU/Linux.",
+    headingTasks: "AI Annotation — AnyoneAI",
+    tasks: "Colaborei como anotador técnico em tarefas de treinamento de modelos de IA (NES — Next Edit Suggestions) para AnyoneAI. Trabalho focado em edição de código C++, detecção de padrões e renomeação de variáveis, avaliando a qualidade de sugestões de modelos de linguagem usando critérios de taxonomia estruturada.",
+    headingStack: "Stack explorada",
+    stack: "Supabase, PostgreSQL RLS, Railway, GitHub Actions, C++, VS Code Insiders, Cursor, Python scripting"
+  },
+  timeline2026: {
+    title: "Graduação & Perfil Profissional Consolidado",
+    headingSubjects: "Conclusão acadêmica",
+    subjects: "Graduado em Tecnologia de Sistematização de Dados, Universidad Distrital Francisco José de Caldas. Projeto de conclusão: automação do processo de homologação acadêmica mediante web scraping e reconhecimento de padrões.",
+    headingAchievements: "Perfil atual",
+    achievements: "Desenvolvedor Full Stack e Engenheiro de IA com mais de 3 anos de experiência em produção. Stack consolidado em TypeScript, Node.js, React, Next.js, Python, FastAPI, GraphQL, PostgreSQL e Docker. Experiência adicional em automação empresarial com Make.com, integração de APIs de IA e design de agentes conversacionais.",
+    headingLearnings: "Horizonte profissional",
+    learnings: "Focado em cargos remotos internacionais como Desenvolvedor Full Stack ou Engenheiro de IA. Ativo em projetos de automação empresarial, arquitetura de agentes de IA e desenvolvimento de produtos digitais. Linux como ferramenta diária de trabalho."
+  },
+  timelineAikonversa: {
+    title: "Aikonversa — Automação Empresarial com IA",
+    headingCompany: "Projeto",
+    company: "Trabalho freelance com aikonversa.com, projetando e implementando fluxos de automação empresarial para campanhas de captação e gestão de leads no WhatsApp, integrando plataformas de mensagens, CRM e anúncios digitais.",
+    headingTasks: "Automações implementadas",
+    tasks: "Pipeline completo TikTok Ads → Respond.io para captura e enriquecimento automático de leads. Sistema de broadcasts massivos no WhatsApp com segmentação dinâmica de contatos. Fluxo de roteamento com agente de IA para qualificação e encaminhamento de prospectos a assessores humanos. Agente recepcionista de IA com base de conhecimento estruturada sobre produtos e preços.",
+    headingStack: "Tech Stack",
+    stack: "Make.com, Respond.io, Meta Business API, WhatsApp Cloud API, TikTok Lead Ads API, HTTP/REST modules, AI Agents (LLM-based)"
+  },
 portfolio: {
   title: "Portfólio",
   subtitle: "Meus Trabalhos Recentes",
@@ -336,8 +405,13 @@ portfolio: {
   game2048Description: "Jogo nativo desenvolvido em Kotlin para Android. Integra o Firebase para armazenar as pontuações mais altas na nuvem e permite competição entre jogadores.",
   ecommerceDescription: "Projeto de E-commerce com frontend em HTML, CSS e JavaScript. Backend construído com Java Spring Boot e APIs REST, integrando via objetos JSON.",
   gregDescription: "Site profissional para o setor imobiliário com integração com Google Maps, formulários, geolocalização e suporte multilíngue em tempo real.",
-  homologacionesDescription: "Aplicativo desenvolvido com React (frontend) e Node.js (backend), projetado para ser leve, portátil e fácil de implantar. Automatiza o processo acadêmico de equivalência de disciplinas entre instituições."
-
+  homologacionesDescription: "Aplicativo desenvolvido com React (frontend) e Node.js (backend), projetado para ser leve, portátil e fácil de implantar. Automatiza o processo acadêmico de equivalência de disciplinas entre instituições.",
+  aikonversaDescription: "Agência de desenvolvimento web e automação com IA para LATAM. Sites profissionais com chatbot de WhatsApp, integrações e soluções digitais entregues em 48 horas.",
+  recitoDescription: "Site para restaurante e bar de entretenimento em Medellín. Sistema de reservas, integração com WhatsApp Business, calendário de eventos e galeria interativa.",
+  integradocgtDescription: "Plataforma B2B de gestão documental e digitalização para empresas na Guatemala. Assinatura eletrônica, conformidade DTE/FEL, integração com DocuWare e automação de fluxos documentais.",
+  claiconDescription: "E-commerce para marca colombiana de acessórios artesanais. Catálogo de produtos com galeria visual, integração de contato e design orientado à conversão.",
+  conexiongtDescription: "Plataforma bilíngue de serviços jurídicos que conecta clientes nos EUA (Phoenix) com advogados na Guatemala. Gestão de trâmites, autenticação de documentos e apostilas sem necessidade de viagem.",
+  truenorthDescription: "Site para empresa de construção residencial na Carolina do Sul, EUA. Busca de propriedades, portfólio de projetos e sistema de contato integrado."
 },
 
 }
@@ -420,7 +494,7 @@ function setLanguage(lang, initialLoad = false) {
   }
 
   // Actualizar nombres de habilidades (badges)
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 8; i++) {
     const progressElement = document.getElementById(`progress-${i}`);
     if (progressElement) progressElement.textContent = t[`progress${i}`] || progressElement.textContent;
   }
@@ -463,6 +537,11 @@ function setLanguage(lang, initialLoad = false) {
   if (headingAchievements2022) headingAchievements2022.textContent = t2022.headingAchievements;
   if (subjects2022) subjects2022.textContent = t2022.subjects;
   if (achievements2022) achievements2022.textContent = t2022.achievements;
+
+  const philosophy2022 = document.getElementById('timeline-2022-philosophy');
+  const headingPhilosophy2022 = document.getElementById('timeline-2022-heading-philosophy');
+  if (philosophy2022) philosophy2022.textContent = t2022.philosophy;
+  if (headingPhilosophy2022) headingPhilosophy2022.textContent = t2022.headingPhilosophy;
 
   const cs = t.careerSection;
   const careerTitle1 = document.getElementById('career-title-1');
@@ -539,16 +618,39 @@ function setLanguage(lang, initialLoad = false) {
   if (lwStack) lwStack.textContent = lw.stack;
 
 const t2026 = t.timeline2026;
+const el2026 = (id) => document.getElementById(id);
 
-document.getElementById('timeline-2026-title').textContent = t2026.title;
-document.getElementById('timeline-2026-heading-subjects').textContent = t2026.headingSubjects;
-document.getElementById('timeline-2026-subjects').textContent = t2026.subjects;
-document.getElementById('timeline-2026-heading-achievements').textContent = t2026.headingAchievements;
-document.getElementById('timeline-2026-achievements').textContent = t2026.achievements;
-document.getElementById('timeline-2026-heading-learnings').textContent = t2026.headingLearnings;
-document.getElementById('timeline-2026-learnings').textContent = t2026.learnings;
-document.getElementById('timeline-2026-heading-next').textContent = t2026.headingNext;
-document.getElementById('timeline-2026-next').textContent = t2026.next;
+if (el2026('timeline-2026-title')) el2026('timeline-2026-title').textContent = t2026.title;
+if (el2026('timeline-2026-heading-subjects')) el2026('timeline-2026-heading-subjects').textContent = t2026.headingSubjects;
+if (el2026('timeline-2026-subjects')) el2026('timeline-2026-subjects').textContent = t2026.subjects;
+if (el2026('timeline-2026-heading-achievements')) el2026('timeline-2026-heading-achievements').textContent = t2026.headingAchievements;
+if (el2026('timeline-2026-achievements')) el2026('timeline-2026-achievements').textContent = t2026.achievements;
+if (el2026('timeline-2026-heading-learnings')) el2026('timeline-2026-heading-learnings').textContent = t2026.headingLearnings;
+if (el2026('timeline-2026-learnings')) el2026('timeline-2026-learnings').textContent = t2026.learnings;
+
+const proyectos = t.timelineProyectos;
+if (proyectos) {
+  const el = (id) => document.getElementById(id);
+  if (el('timeline-proyectos-title')) el('timeline-proyectos-title').textContent = proyectos.title;
+  if (el('timeline-proyectos-heading-company')) el('timeline-proyectos-heading-company').textContent = proyectos.headingCompany;
+  if (el('timeline-proyectos-company')) el('timeline-proyectos-company').textContent = proyectos.company;
+  if (el('timeline-proyectos-heading-tasks')) el('timeline-proyectos-heading-tasks').textContent = proyectos.headingTasks;
+  if (el('timeline-proyectos-tasks')) el('timeline-proyectos-tasks').textContent = proyectos.tasks;
+  if (el('timeline-proyectos-heading-stack')) el('timeline-proyectos-heading-stack').textContent = proyectos.headingStack;
+  if (el('timeline-proyectos-stack')) el('timeline-proyectos-stack').textContent = proyectos.stack;
+}
+
+const aikonversa = t.timelineAikonversa;
+if (aikonversa) {
+  const el = (id) => document.getElementById(id);
+  if (el('timeline-aikonversa-title')) el('timeline-aikonversa-title').textContent = aikonversa.title;
+  if (el('timeline-aikonversa-heading-company')) el('timeline-aikonversa-heading-company').textContent = aikonversa.headingCompany;
+  if (el('timeline-aikonversa-company')) el('timeline-aikonversa-company').textContent = aikonversa.company;
+  if (el('timeline-aikonversa-heading-tasks')) el('timeline-aikonversa-heading-tasks').textContent = aikonversa.headingTasks;
+  if (el('timeline-aikonversa-tasks')) el('timeline-aikonversa-tasks').textContent = aikonversa.tasks;
+  if (el('timeline-aikonversa-heading-stack')) el('timeline-aikonversa-heading-stack').textContent = aikonversa.headingStack;
+  if (el('timeline-aikonversa-stack')) el('timeline-aikonversa-stack').textContent = aikonversa.stack;
+}
 
 // Portfolio Section
 const p = t.portfolio;
@@ -568,6 +670,14 @@ document.getElementById("ecommerce-description").textContent = t.portfolio.ecomm
 document.getElementById("greg-description").textContent = t.portfolio.gregDescription;
 
 document.getElementById("homologaciones-description").textContent = t.portfolio.homologacionesDescription;
+
+const pEl = (id) => document.getElementById(id);
+if (pEl("aikonversa-description")) pEl("aikonversa-description").textContent = t.portfolio.aikonversaDescription;
+if (pEl("recinto-description")) pEl("recinto-description").textContent = t.portfolio.recitoDescription;
+if (pEl("integradocgt-description")) pEl("integradocgt-description").textContent = t.portfolio.integradocgtDescription;
+if (pEl("claicon-description")) pEl("claicon-description").textContent = t.portfolio.claiconDescription;
+if (pEl("conexiongt-description")) pEl("conexiongt-description").textContent = t.portfolio.conexiongtDescription;
+if (pEl("truenorth-description")) pEl("truenorth-description").textContent = t.portfolio.truenorthDescription;
 }
 
 // Función para inicializar el idioma al cargar la página
