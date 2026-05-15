@@ -2191,3 +2191,48 @@ and (orientation: portrait) {
         top: -35px;
     }
 }
+
+/* ===================================
+    Hero Social Links
+====================================== */
+
+.hero-social-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+}
+
+.hero-social-link svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.hero-social-link:hover {
+    border-color: #d9be26;
+    color: #d9be26;
+    text-decoration: none;
+}
+
+/* SVG icons inside .social-icon links (side-footer & slider-footer) */
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    vertical-align: middle;
+}

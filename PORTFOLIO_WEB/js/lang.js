@@ -2,10 +2,10 @@ const translations = {
   es: {
     greeting: "Hola, soy",
     name: "Juan Pablo Bautista",
-    description: "Tecnólogo en Sistematización de Datos con experiencia en desarrollo de software web y móvil. He trabajado en proyectos reales con empresas, implementando soluciones en Laravel, React.js, Kotlin y Spring Boot. Enfocado en construir interfaces modernas, sistemas eficientes y procesos automatizados.",
-    jobTitle1: "Tecnólogo en Sistematización de Datos &",
-    jobTitle2: "Desarrollador Full Stack",
-    specialization: "Especializado en desarrollo web, móvil y automatización de procesos.",
+    description: "Desarrollador Full Stack e Ingeniero de Software enfocado en IA, con experiencia construyendo productos digitales escalables en entornos reales de producción en EE.UU. y LATAM. Especializado en JavaScript, TypeScript, React, Next.js y Node.js — con enfoque en arquitectura backend, diseño de sistemas y soluciones sólidas a lo largo de todo el ciclo de desarrollo.",
+    jobTitle1: "Desarrollador Full Stack &",
+    jobTitle2: "Ingeniero de Software | IA",
+    specialization: "Especializado en JavaScript, TypeScript, React, Next.js, Node.js y automatización con IA.",
     experienceText: "Años de Experiencia",
     skill1: "DESARROLLO WEB",
     skillDesc1: "Desarrollo de interfaces con React.js, Next.js y Laravel. Creación de APIs RESTful con Spring Boot y PHP.",
@@ -18,6 +18,9 @@ const translations = {
     progress1: "JavaScript/React.js",
     progress2: "Laravel/PHP",
     progress3: "Kotlin/Android",
+    progress4: "PostgreSQL/MySQL",
+    progress5: "Spring Boot/Node.js",
+    progress6: "Docker/Git",
       contactTitle: "Contáctame",
     contactSubtitle: "Pongámonos en contacto",
     contactAvailability: "Estoy disponible para proyectos acordes a mis habilidades.",
@@ -41,47 +44,49 @@ const translations = {
   subjects: "Profundicé mis conocimientos en programación estructurada y orientada a objetos, desarrollando sistemas en C y C++ con estructuras de datos.",
   achievements: "Participé en eventos como FLISoL, aprendí instalaciones básicas con Debian y Ubuntu, y experimenté con distribuciones como Fedora, Manjaro y Garuda. También me familiaricé con la configuración de servidores en entornos GNU/Linux."
   },
-  timeline2023: {
-  title: "Primeros Proyectos CRUD y Desarrollo Web",
-  headingSubjects: "Tecnologías aplicadas",
-  headingAchievements: "Logros",
-  headingLearnings: "Aprendizajes",
-  subjects: "Desarrollo de sistemas CRUD monolíticos usando Java y C++, con conexión a bases de datos locales.",
-  achievements: "Diseño de funcionalidades completas (crear, leer, actualizar, eliminar) en aplicaciones de escritorio funcionales.",
-  learnings: "Inicié en desarrollo web con JavaScript y PHP, sentando las bases para aplicaciones dinámicas orientadas a usuario."
-},
-
-timeline2024: {
-  title: "Despegue Profesional y Contribución Open Source",
-  headingSubjects: "Ámbitos aplicados",
-  headingAchievements: "Proyectos laborales",
-  headingLearnings: "Nuevas tecnologías",
-  headingOpensource: "Proyectos personales",
-  headingCommunity: "Open Source & Comunidad",
-  subjects: "Desarrollo web con React.js y PHP, administración de servidores FTP y herramientas backend para intranet.",
-  achievements: "Trabajo en MW Moving WEB como desarrollador de componentes y gestor de producción web en entorno real.",
-  learnings: "Inicié el desarrollo de apps móviles en Android con Kotlin, integrando APIs web y estructuras modernas.",
-  opensource: "Refiné mis habilidades participando en proyectos personales y colaborativos, enfocados en automatización, herramientas CLI y scraping.",
-  community: "Me sumé activamente a la comunidad open source, versionando mis proyectos en GitHub y compartiendo herramientas libres para otros desarrolladores."
-},
-timeline2025: {
-  title: "Consolidación Full Stack y Experiencia Internacional",
-  headingStack: "Stack Principal",
-  stack: "Laravel, Livewire, TailwindCSS, Alpine.js, Eloquent ORM, Next.js, PostgreSQL, MySQL.",
-  headingMobile: "Desarrollo Móvil",
-  mobile: "Aplicaciones Android nativas con Kotlin, integración con APIs REST y microservicios.",
-  headingFrontend: "Frontend Avanzado",
-  frontend: "UI/UX con TailwindCSS y Livewire, componentes dinámicos en Next.js y JavaScript moderno.",
-  headingInfra: "Infraestructura & Automatización",
-  infra: "Automatización de procesos con jobs y schedulers en Laravel, despliegue local con Docker & Laravel Sail, optimización del manejo de datos y sincronización con APIs externas.",
-  headingMarket: "Experiencia Internacional",
-  market: "Experiencia en el sector inmobiliario estadounidense (Real Estate), trabajando de forma remota con equipos multidisciplinarios, ajustando soluciones a flujos comerciales y requerimientos de productividad reales.",
-  headingIntegrations: "Integraciones y APIs",
-  integrations: "Validaciones geográficas, integración con Google Maps Autocomplete API, FullCalendar, y formularios públicos con seguimiento y notificaciones por correo.",
-  headingSkills: "Habilidades Desarrolladas",
-  skills: "Arquitectura full stack, colaboración remota, optimización de sistemas backend, gestión de datos geolocalizados, seguridad, y experiencia en ecosistemas de producción reales."
-},
-timeline2026: {
+  careerSection: {
+    title1: "Mi Carrera",
+    title2: "Historia & Timeline",
+    desc: "Mira lo que he hecho en mi vida profesional hasta ahora.",
+    yearsOld: "Años de edad"
+  },
+  timelineMW: {
+    title: "MW Moving Web — Desarrollador de Software",
+    headingCompany: "Empresa",
+    company: "Bogotá, Colombia. Desarrollo de componentes web para plataformas internas.",
+    headingTasks: "Responsabilidades",
+    tasks: "Componentes de interfaz y utilidades de backend. Gestión de entornos FTP de producción y flujos de implementación.",
+    headingStack: "Tech Stack",
+    stack: "JavaScript, TypeScript, Node.js, React, PHP, Laravel, MySQL"
+  },
+  timelineG4: {
+    title: "G4 Technologies — Desarrollador Full Stack",
+    headingCompany: "Empresa",
+    company: "Remoto — EE. UU. / Colombia. Plataforma de gestión interna para operaciones inmobiliarias.",
+    headingTasks: "Responsabilidades",
+    tasks: "Módulos full stack para flujos operativos e informes. Control horario con validación geográfica. Generación automatizada de nómina. Entornos dockerizados.",
+    headingStack: "Tech Stack",
+    stack: "PHP, Laravel, Node.js, PostgreSQL, Eloquent ORM, Docker"
+  },
+  timelineTexo: {
+    title: "Logo Texo S.A.S — Full Stack & Ing. de IA",
+    headingCompany: "Empresa",
+    company: "Bogotá, Colombia. Soluciones de software y hardware integradas con inteligencia artificial.",
+    headingTasks: "Responsabilidades",
+    tasks: "APIs REST para sistemas de IA. Integración de visión artificial e interpretación de audio. Proyectos multidisciplinarios con hardware y software. Scrum Master.",
+    headingStack: "Tech Stack",
+    stack: "Python, FastAPI, Node.js, React, Java, Spring Boot, MySQL, Docker"
+  },
+  timelineLeadwire: {
+    title: "LeadWire — Full Stack & Ing. de IA",
+    headingCompany: "Empresa",
+    company: "Remoto — Puerto Rico / Colombia. Plataforma de mensajería y automatización de campañas para EE. UU. y Centroamérica.",
+    headingTasks: "Responsabilidades",
+    tasks: "Backend de mensajería de alto volumen. Modelos de datos escalables con GraphQL y Prisma ORM. Dashboards y flujos de automatización con React y Next.js.",
+    headingStack: "Tech Stack",
+    stack: "TypeScript, Node.js, GraphQL, Prisma ORM, React, Next.js, MySQL, Redis, Docker"
+  },
+  timeline2026: {
   title: "Graduación y Nuevos Horizontes Profesionales",
   headingSubjects: "Cierre académico",
   headingAchievements: "Fortalezas actuales",
@@ -111,9 +116,9 @@ portfolio: {
   en: {
     greeting: "Hello, I am",
     name: "Juan Pablo Bautista",
-    jobTitle1: "Data Systematization Technologist &",
-    jobTitle2: "Full Stack Developer",
-    specialization: "Specialized in web development, mobile applications and process automation.",
+    jobTitle1: "Full Stack Developer &",
+    jobTitle2: "Software Engineer | AI",
+    specialization: "Specialized in JavaScript, TypeScript, React, Next.js, Node.js and AI-driven automation.",
     experienceText: "Years of Experience",
     skill1: "WEB DEVELOPMENT",
     skillDesc1: "Interface development with React.js, Next.js and Laravel. RESTful API creation with Spring Boot and PHP.",
@@ -126,7 +131,10 @@ portfolio: {
     progress1: "JavaScript/React.js",
     progress2: "Laravel/PHP",
     progress3: "Kotlin/Android",
-    description: "Technologist in Data Systematization with experience in web and mobile software development. I have worked on real-world projects with companies, implementing solutions using Laravel, React.js, Kotlin, and Spring Boot. Focused on building modern interfaces, efficient systems, and automated processes.",
+    progress4: "PostgreSQL/MySQL",
+    progress5: "Spring Boot/Node.js",
+    progress6: "Docker/Git",
+    description: "Full Stack Developer and AI Software Engineer with experience building scalable digital products in real production environments across the US and LATAM. Core expertise in JavaScript, TypeScript, React, Next.js and Node.js — focused on backend architecture, clean system design, and delivering reliable solutions across the full development lifecycle.",
     contactTitle: "Contact Me",
     contactSubtitle: "Let's Get In Touch",
     contactAvailability: "I am available for projects according to my skills.",
@@ -149,48 +157,49 @@ portfolio: {
       subjects: "I deepened my knowledge in structured and object-oriented programming, developing systems in C and C++ using data structures.",
       achievements: "I participated in events like FLISoL, learned basic installations with Debian and Ubuntu, and explored distributions such as Fedora, Manjaro, and Garuda. I also gained experience configuring servers in GNU/Linux environments."
     },
-    timeline2023: {
-  title: "First CRUD Projects and Web Development",
-  headingSubjects: "Technologies Used",
-  headingAchievements: "Achievements",
-  headingLearnings: "What I Learned",
-  subjects: "Development of monolithic CRUD systems using Java and C++, with local database integration.",
-  achievements: "Designed full desktop app functionalities (create, read, update, delete).",
-  learnings: "Began web development with JavaScript and PHP, laying the foundation for user-oriented dynamic applications."
-},
-
-timeline2024: {
-  title: "Professional Takeoff and Open Source Contribution",
-  headingSubjects: "Applied Fields",
-  headingAchievements: "Work Projects",
-  headingLearnings: "New Technologies",
-  headingOpensource: "Personal Projects",
-  headingCommunity: "Open Source & Community",
-  subjects: "Web development with React.js and PHP, FTP server administration, and backend intranet tools.",
-  achievements: "Worked at MW Moving WEB as a component developer and production manager in a real environment.",
-  learnings: "Began Android app development with Kotlin, integrating APIs and modern architectures.",
-  opensource: "Refined my skills by contributing to personal and collaborative projects focused on automation, CLI tools, and scraping.",
-  community: "Actively joined the open source community, publishing my projects on GitHub and sharing free tools with other developers."
-},
-
-timeline2025: {
-  title: "Full Stack Consolidation and International Experience",
-  headingStack: "Main Stack",
-  stack: "Laravel, Livewire, TailwindCSS, Alpine.js, Eloquent ORM, Next.js, PostgreSQL, MySQL.",
-  headingMobile: "Mobile Development",
-  mobile: "Native Android apps with Kotlin, integrated with REST APIs and microservices.",
-  headingFrontend: "Advanced Frontend",
-  frontend: "UI/UX using TailwindCSS and Livewire, dynamic components in Next.js and modern JavaScript.",
-  headingInfra: "Infrastructure & Automation",
-  infra: "Process automation with Laravel jobs and schedulers, local deployment using Docker & Laravel Sail, and external API sync optimization.",
-  headingMarket: "International Experience",
-  market: "Worked in the US real estate sector, collaborating remotely with multidisciplinary teams and adapting systems to business flows and real-world demands.",
-  headingIntegrations: "Integrations and APIs",
-  integrations: "Geographic validations, integration with Google Maps Autocomplete API, FullCalendar, and public forms with tracking and email notifications.",
-  headingSkills: "Skills Developed",
-  skills: "Full stack architecture, remote collaboration, backend system optimization, geolocation data management, security, and production-ready experience."
-},
-timeline2026: {
+    careerSection: {
+    title1: "My Career",
+    title2: "History & Timeline",
+    desc: "Please look what I have done so far in my life.",
+    yearsOld: "Years Old"
+  },
+  timelineMW: {
+    title: "MW Moving Web — Software Developer",
+    headingCompany: "Company",
+    company: "Bogotá, Colombia. Frontend components and backend utilities for internal web platforms.",
+    headingTasks: "Responsibilities",
+    tasks: "Developed frontend components and backend utilities. Managed production FTP environments and deployment workflows.",
+    headingStack: "Tech Stack",
+    stack: "JavaScript, TypeScript, Node.js, React, PHP, Laravel, MySQL"
+  },
+  timelineG4: {
+    title: "G4 Technologies — Full Stack Developer",
+    headingCompany: "Company",
+    company: "Remote — USA / Colombia. Internal management platform for real estate operations.",
+    headingTasks: "Responsibilities",
+    tasks: "Full-stack modules for operational workflows and reporting. Geographic time-tracking validation. Automated payroll generation. Containerized environments.",
+    headingStack: "Tech Stack",
+    stack: "PHP, Laravel, Node.js, PostgreSQL, Eloquent ORM, Docker"
+  },
+  timelineTexo: {
+    title: "Logo Texo S.A.S — Full Stack & AI Engineer",
+    headingCompany: "Company",
+    company: "Bogotá, Colombia. AI-integrated software and hardware solutions.",
+    headingTasks: "Responsibilities",
+    tasks: "REST APIs for AI systems. Computer vision and audio interpretation integration. Cross-disciplinary projects. Scrum Master.",
+    headingStack: "Tech Stack",
+    stack: "Python, FastAPI, Node.js, React, Java, Spring Boot, MySQL, Docker"
+  },
+  timelineLeadwire: {
+    title: "LeadWire — Full Stack & AI Engineer",
+    headingCompany: "Company",
+    company: "Remote — Puerto Rico / Colombia. Messaging and campaign automation platform for US and Central America.",
+    headingTasks: "Responsibilities",
+    tasks: "High-volume messaging backend. Scalable data models with GraphQL and Prisma ORM. Dashboard features and automation workflows with React and Next.js.",
+    headingStack: "Tech Stack",
+    stack: "TypeScript, Node.js, GraphQL, Prisma ORM, React, Next.js, MySQL, Redis, Docker"
+  },
+  timeline2026: {
   title: "Graduation and New Professional Goals",
   headingSubjects: "Academic Completion",
   headingAchievements: "Current Strengths",
@@ -222,10 +231,10 @@ portfolio: {
   pt: {
     greeting: "Olá, eu sou",
     name: "Juan Pablo Bautista",
-    description: "Tecnólogo em Sistematização de Dados com experiência em desenvolvimento de software web e mobile. Atuei em projetos reais com empresas, implementando soluções com Laravel, React.js, Kotlin e Spring Boot. Foco em interfaces modernas, sistemas eficientes e processos automatizados.",
-    jobTitle1: "Tecnólogo em Sistematização de Dados &",
-    jobTitle2: "Desenvolvedor Full Stack",
-    specialization: "Especializado em desenvolvimento web, aplicativos móveis e automação de processos.",
+    description: "Desenvolvedor Full Stack e Engenheiro de Software especializado em IA, com experiência na construção de produtos digitais escaláveis em ambientes reais de produção nos EUA e LATAM. Especializado em JavaScript, TypeScript, React, Next.js e Node.js — com foco em arquitetura backend, design de sistemas e soluções confiáveis ao longo de todo o ciclo de desenvolvimento.",
+    jobTitle1: "Desenvolvedor Full Stack &",
+    jobTitle2: "Engenheiro de Software | IA",
+    specialization: "Especializado em JavaScript, TypeScript, React, Next.js, Node.js e automação com IA.",
     experienceText: "Anos de Experiência",
     skill1: "DESENVOLVIMENTO WEB",
     skillDesc1: "Desenvolvimento de interfaces com React.js, Next.js e Laravel. Criação de APIs RESTful com Spring Boot e PHP.",
@@ -237,7 +246,10 @@ portfolio: {
     skillDesc4: "Projeto e implementação de bancos de dados com PostgreSQL, MySQL e MongoDB.",
     progress1: "JavaScript/React.js",
     progress2: "Laravel/PHP",
-    progress3: "Kotlin/Android" ,
+    progress3: "Kotlin/Android",
+    progress4: "PostgreSQL/MySQL",
+    progress5: "Spring Boot/Node.js",
+    progress6: "Docker/Git",
      contactTitle: "Contate-me",
     contactSubtitle: "Vamos entrar em contato",
     contactAvailability: "Estou disponível para projetos de acordo com minhas habilidades.",
@@ -260,45 +272,48 @@ portfolio: {
     subjects: "Aprofundei meus conhecimentos em programação estruturada e orientada a objetos, desenvolvendo sistemas em C e C++ com estruturas de dados.",
     achievements: "Participei de eventos como o FLISoL, aprendi instalações básicas com Debian e Ubuntu e explorei distribuições como Fedora, Manjaro e Garuda. Também adquiri experiência na configuração de servidores em ambientes GNU/Linux."
   },
-  timeline2023: {
-  title: "Primeiros Projetos CRUD e Desenvolvimento Web",
-  headingSubjects: "Tecnologias aplicadas",
-  headingAchievements: "Conquistas",
-  headingLearnings: "Aprendizados",
-  subjects: "Desenvolvimento de sistemas CRUD monolíticos usando Java e C++, com conexão a bancos de dados locais.",
-  achievements: "Criação de funcionalidades completas (criar, ler, atualizar, deletar) em aplicações desktop funcionais.",
-  learnings: "Comecei no desenvolvimento web com JavaScript e PHP, estabelecendo as bases para aplicações dinâmicas orientadas ao usuário."
-},
-timeline2024: {
-  title: "Impulso Profissional e Contribuição Open Source",
-  headingSubjects: "Áreas aplicadas",
-  headingAchievements: "Projetos de trabalho",
-  headingLearnings: "Novas tecnologias",
-  headingOpensource: "Projetos pessoais",
-  headingCommunity: "Open Source & Comunidade",
-  subjects: "Desenvolvimento web com React.js e PHP, administração de servidores FTP e ferramentas backend para intranet.",
-  achievements: "Trabalhei na MW Moving WEB como desenvolvedor de componentes e gestor de produção em ambiente real.",
-  learnings: "Comecei o desenvolvimento de aplicativos Android com Kotlin, integrando APIs e arquiteturas modernas.",
-  opensource: "Aperfeiçoei minhas habilidades participando de projetos pessoais e colaborativos focados em automação, ferramentas CLI e scraping.",
-  community: "Participei ativamente da comunidade open source, publicando projetos no GitHub e compartilhando ferramentas livres com outros desenvolvedores."
-},
-timeline2025: {
-  title: "Consolidação Full Stack e Experiência Internacional",
-  headingStack: "Stack Principal",
-  stack: "Laravel, Livewire, TailwindCSS, Alpine.js, Eloquent ORM, Next.js, PostgreSQL, MySQL.",
-  headingMobile: "Desenvolvimento Mobile",
-  mobile: "Aplicativos Android nativos com Kotlin, integrados com APIs REST e microsserviços.",
-  headingFrontend: "Frontend Avançado",
-  frontend: "UI/UX com TailwindCSS e Livewire, componentes dinâmicos em Next.js e JavaScript moderno.",
-  headingInfra: "Infraestrutura e Automação",
-  infra: "Automatização de processos com jobs e schedulers em Laravel, implantação local com Docker & Laravel Sail e sincronização de dados com APIs externas.",
-  headingMarket: "Experiência Internacional",
-  market: "Atuação no setor imobiliário dos EUA, colaborando remotamente com equipes multidisciplinares e adaptando soluções a fluxos de negócio reais.",
-  headingIntegrations: "Integrações e APIs",
-  integrations: "Validações geográficas, integração com Google Maps Autocomplete API, FullCalendar e formulários públicos com rastreamento e notificações por e-mail.",
-  headingSkills: "Habilidades Desenvolvidas",
-  skills: "Arquitetura full stack, colaboração remota, otimização de sistemas backend, gerenciamento de dados geolocalizados, segurança e experiência em ambientes de produção reais."
-},
+  careerSection: {
+    title1: "Minha Carreira",
+    title2: "Histórico & Timeline",
+    desc: "Veja o que já realizei em minha vida profissional.",
+    yearsOld: "Anos de Idade"
+  },
+  timelineMW: {
+    title: "MW Moving Web — Desenvolvedor de Software",
+    headingCompany: "Empresa",
+    company: "Bogotá, Colômbia. Desenvolvimento de componentes web para plataformas internas.",
+    headingTasks: "Responsabilidades",
+    tasks: "Componentes de interface e utilitários de backend. Gestão de ambientes FTP de produção e fluxos de implantação.",
+    headingStack: "Tech Stack",
+    stack: "JavaScript, TypeScript, Node.js, React, PHP, Laravel, MySQL"
+  },
+  timelineG4: {
+    title: "G4 Technologies — Desenvolvedor Full Stack",
+    headingCompany: "Empresa",
+    company: "Remoto — EUA / Colômbia. Plataforma de gestão interna para operações imobiliárias.",
+    headingTasks: "Responsabilidades",
+    tasks: "Módulos full stack para fluxos operacionais e relatórios. Controle de horário com validação geográfica. Geração automatizada de folha de pagamento. Ambientes dockerizados.",
+    headingStack: "Tech Stack",
+    stack: "PHP, Laravel, Node.js, PostgreSQL, Eloquent ORM, Docker"
+  },
+  timelineTexo: {
+    title: "Logo Texo S.A.S — Full Stack & Eng. de IA",
+    headingCompany: "Empresa",
+    company: "Bogotá, Colômbia. Soluções de software e hardware integradas com inteligência artificial.",
+    headingTasks: "Responsabilidades",
+    tasks: "APIs REST para sistemas de IA. Integração de visão computacional e interpretação de áudio. Projetos multidisciplinares com hardware e software. Scrum Master.",
+    headingStack: "Tech Stack",
+    stack: "Python, FastAPI, Node.js, React, Java, Spring Boot, MySQL, Docker"
+  },
+  timelineLeadwire: {
+    title: "LeadWire — Full Stack & Eng. de IA",
+    headingCompany: "Empresa",
+    company: "Remoto — Porto Rico / Colômbia. Plataforma de mensagens e automação de campanhas para EUA e América Central.",
+    headingTasks: "Responsabilidades",
+    tasks: "Backend de mensagens de alto volume. Modelos de dados escaláveis com GraphQL e Prisma ORM. Dashboards e automação com React e Next.js.",
+    headingStack: "Tech Stack",
+    stack: "TypeScript, Node.js, GraphQL, Prisma ORM, React, Next.js, MySQL, Redis, Docker"
+  },
 
 timeline2026: {
   title: "Graduação e Novos Rumos Profissionais",
@@ -404,15 +419,10 @@ function setLanguage(lang, initialLoad = false) {
     if (descElement) descElement.textContent = t[`skillDesc${i}`];
   }
 
-  // Actualizar barras de progreso (solo texto)
-  for (let i = 1; i <= 3; i++) {
+  // Actualizar nombres de habilidades (badges)
+  for (let i = 1; i <= 6; i++) {
     const progressElement = document.getElementById(`progress-${i}`);
-    if (progressElement) {
-      const percentage = progressElement.querySelector('.numscroller')?.textContent || '0';
-      progressElement.innerHTML = `
-        ${t[`progress${i}`]}<span class="float-right"><b class="numscroller">${percentage}</b>%</span>
-      `;
-    }
+    if (progressElement) progressElement.textContent = t[`progress${i}`] || progressElement.textContent;
   }
 
   // 3. Actualizar el botón de idioma activo
@@ -454,47 +464,79 @@ function setLanguage(lang, initialLoad = false) {
   if (subjects2022) subjects2022.textContent = t2022.subjects;
   if (achievements2022) achievements2022.textContent = t2022.achievements;
 
-  const t2023 = t.timeline2023;
+  const cs = t.careerSection;
+  const careerTitle1 = document.getElementById('career-title-1');
+  const careerTitle2 = document.getElementById('career-title-2');
+  const careerDesc = document.getElementById('career-desc');
+  const yearsOldLabel = document.getElementById('years-old-label');
+  if (careerTitle1) careerTitle1.textContent = ' ' + cs.title1 + ' ';
+  if (careerTitle2) careerTitle2.textContent = ' ' + cs.title2 + ' ';
+  if (careerDesc) careerDesc.textContent = cs.desc;
+  if (yearsOldLabel) yearsOldLabel.textContent = cs.yearsOld;
 
-document.getElementById('timeline-2023-title').textContent = t2023.title;
-document.getElementById('timeline-2023-heading-subjects').textContent = t2023.headingSubjects;
-document.getElementById('timeline-2023-subjects').textContent = t2023.subjects;
-document.getElementById('timeline-2023-heading-achievements').textContent = t2023.headingAchievements;
-document.getElementById('timeline-2023-achievements').textContent = t2023.achievements;
-document.getElementById('timeline-2023-heading-learnings').textContent = t2023.headingLearnings;
-document.getElementById('timeline-2023-learnings').textContent = t2023.learnings;
+  const mw = t.timelineMW;
+  const mwTitle = document.getElementById('timeline-mw-title');
+  const mwHeadingCompany = document.getElementById('timeline-mw-heading-company');
+  const mwCompany = document.getElementById('timeline-mw-company');
+  const mwHeadingTasks = document.getElementById('timeline-mw-heading-tasks');
+  const mwTasks = document.getElementById('timeline-mw-tasks');
+  const mwHeadingStack = document.getElementById('timeline-mw-heading-stack');
+  const mwStack = document.getElementById('timeline-mw-stack');
+  if (mwTitle) mwTitle.textContent = mw.title;
+  if (mwHeadingCompany) mwHeadingCompany.textContent = mw.headingCompany;
+  if (mwCompany) mwCompany.textContent = mw.company;
+  if (mwHeadingTasks) mwHeadingTasks.textContent = mw.headingTasks;
+  if (mwTasks) mwTasks.textContent = mw.tasks;
+  if (mwHeadingStack) mwHeadingStack.textContent = mw.headingStack;
+  if (mwStack) mwStack.textContent = mw.stack;
 
-const t2024 = t.timeline2024;
+  const g4 = t.timelineG4;
+  const g4Title = document.getElementById('timeline-g4-title');
+  const g4HeadingCompany = document.getElementById('timeline-g4-heading-company');
+  const g4Company = document.getElementById('timeline-g4-company');
+  const g4HeadingTasks = document.getElementById('timeline-g4-heading-tasks');
+  const g4Tasks = document.getElementById('timeline-g4-tasks');
+  const g4HeadingStack = document.getElementById('timeline-g4-heading-stack');
+  const g4Stack = document.getElementById('timeline-g4-stack');
+  if (g4Title) g4Title.textContent = g4.title;
+  if (g4HeadingCompany) g4HeadingCompany.textContent = g4.headingCompany;
+  if (g4Company) g4Company.textContent = g4.company;
+  if (g4HeadingTasks) g4HeadingTasks.textContent = g4.headingTasks;
+  if (g4Tasks) g4Tasks.textContent = g4.tasks;
+  if (g4HeadingStack) g4HeadingStack.textContent = g4.headingStack;
+  if (g4Stack) g4Stack.textContent = g4.stack;
 
-document.getElementById('timeline-2024-title').textContent = t2024.title;
-document.getElementById('timeline-2024-heading-subjects').textContent = t2024.headingSubjects;
-document.getElementById('timeline-2024-subjects').textContent = t2024.subjects;
-document.getElementById('timeline-2024-heading-achievements').textContent = t2024.headingAchievements;
-document.getElementById('timeline-2024-achievements').textContent = t2024.achievements;
-document.getElementById('timeline-2024-heading-learnings').textContent = t2024.headingLearnings;
-document.getElementById('timeline-2024-learnings').textContent = t2024.learnings;
-document.getElementById('timeline-2024-heading-opensource').textContent = t2024.headingOpensource;
-document.getElementById('timeline-2024-opensource').textContent = t2024.opensource;
-document.getElementById('timeline-2024-heading-community').textContent = t2024.headingCommunity;
-document.getElementById('timeline-2024-community').textContent = t2024.community;
+  const texo = t.timelineTexo;
+  const texoTitle = document.getElementById('timeline-texo-title');
+  const texoHeadingCompany = document.getElementById('timeline-texo-heading-company');
+  const texoCompany = document.getElementById('timeline-texo-company');
+  const texoHeadingTasks = document.getElementById('timeline-texo-heading-tasks');
+  const texoTasks = document.getElementById('timeline-texo-tasks');
+  const texoHeadingStack = document.getElementById('timeline-texo-heading-stack');
+  const texoStack = document.getElementById('timeline-texo-stack');
+  if (texoTitle) texoTitle.textContent = texo.title;
+  if (texoHeadingCompany) texoHeadingCompany.textContent = texo.headingCompany;
+  if (texoCompany) texoCompany.textContent = texo.company;
+  if (texoHeadingTasks) texoHeadingTasks.textContent = texo.headingTasks;
+  if (texoTasks) texoTasks.textContent = texo.tasks;
+  if (texoHeadingStack) texoHeadingStack.textContent = texo.headingStack;
+  if (texoStack) texoStack.textContent = texo.stack;
 
-const t2025 = t.timeline2025;
-
-document.getElementById('timeline-2025-title').textContent = t2025.title;
-document.getElementById('timeline-2025-heading-stack').textContent = t2025.headingStack;
-document.getElementById('timeline-2025-stack').textContent = t2025.stack;
-document.getElementById('timeline-2025-heading-mobile').textContent = t2025.headingMobile;
-document.getElementById('timeline-2025-mobile').textContent = t2025.mobile;
-document.getElementById('timeline-2025-heading-frontend').textContent = t2025.headingFrontend;
-document.getElementById('timeline-2025-frontend').textContent = t2025.frontend;
-document.getElementById('timeline-2025-heading-infra').textContent = t2025.headingInfra;
-document.getElementById('timeline-2025-infra').textContent = t2025.infra;
-document.getElementById('timeline-2025-heading-market').textContent = t2025.headingMarket;
-document.getElementById('timeline-2025-market').textContent = t2025.market;
-document.getElementById('timeline-2025-heading-integrations').textContent = t2025.headingIntegrations;
-document.getElementById('timeline-2025-integrations').textContent = t2025.integrations;
-document.getElementById('timeline-2025-heading-skills').textContent = t2025.headingSkills;
-document.getElementById('timeline-2025-skills').textContent = t2025.skills;
+  const lw = t.timelineLeadwire;
+  const lwTitle = document.getElementById('timeline-leadwire-title');
+  const lwHeadingCompany = document.getElementById('timeline-leadwire-heading-company');
+  const lwCompany = document.getElementById('timeline-leadwire-company');
+  const lwHeadingTasks = document.getElementById('timeline-leadwire-heading-tasks');
+  const lwTasks = document.getElementById('timeline-leadwire-tasks');
+  const lwHeadingStack = document.getElementById('timeline-leadwire-heading-stack');
+  const lwStack = document.getElementById('timeline-leadwire-stack');
+  if (lwTitle) lwTitle.textContent = lw.title;
+  if (lwHeadingCompany) lwHeadingCompany.textContent = lw.headingCompany;
+  if (lwCompany) lwCompany.textContent = lw.company;
+  if (lwHeadingTasks) lwHeadingTasks.textContent = lw.headingTasks;
+  if (lwTasks) lwTasks.textContent = lw.tasks;
+  if (lwHeadingStack) lwHeadingStack.textContent = lw.headingStack;
+  if (lwStack) lwStack.textContent = lw.stack;
 
 const t2026 = t.timeline2026;
 
@@ -546,7 +588,7 @@ function initializeLanguage() {
       setLanguage(lang);
     });
   });
-    updateContactFormTexts(lang);
+    updateContactSection(langToLoad);
 }
 
 // Inicializar al cargar el DOM
@@ -565,27 +607,49 @@ function showLanguageNotification(lang) {
   }, 2000);
 }
 
-// Manejo del formulario (similar a tu implementación actual)
+// reCAPTCHA invisible — se inicializa cuando la API de Google carga
+let _recaptchaWidgetId = null;
+let _resolveToken = null;
+
+window.initRecaptcha = function () {
+    _recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
+        sitekey: '6Leu9lgrAAAAAI17GnxuLsMhfwpZORVElo-DPkHv',
+        size: 'invisible',
+        callback: function (token) {
+            if (_resolveToken) _resolveToken(token);
+        }
+    });
+};
+
+function _getCaptchaToken() {
+    return new Promise(function (resolve) {
+        _resolveToken = resolve;
+        grecaptcha.reset(_recaptchaWidgetId);
+        grecaptcha.execute(_recaptchaWidgetId);
+    });
+}
+
+// Manejo del formulario
 document.getElementById('contact-form')?.addEventListener('submit', async function(e) {
     e.preventDefault();
-    
+
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     const resultDiv = document.getElementById('result');
     const currentLang = document.documentElement.lang || 'es';
     const t = translations[currentLang] || translations['es'];
-    
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Enviando...';
-    
+
     try {
-        if (typeof grecaptcha === 'undefined') {
+        if (typeof grecaptcha === 'undefined' || _recaptchaWidgetId === null) {
             throw new Error('reCAPTCHA no está cargado');
         }
-        
-        const token = grecaptcha.getResponse();
+
+        const token = await _getCaptchaToken();
         if (!token) {
-            throw new Error(t.formErrorCaptcha || 'Por favor completa el reCAPTCHA');
+            throw new Error(t.formErrorCaptcha || 'Verificación reCAPTCHA fallida');
         }
 
         const formData = {
@@ -618,10 +682,6 @@ document.getElementById('contact-form')?.addEventListener('submit', async functi
         if (data.success) {
             resultDiv.innerHTML = `<div class="alert alert-success">${t.formSuccess}</div>`;
             form.reset();
-            
-            if (typeof grecaptcha !== 'undefined') {
-                grecaptcha.reset();
-            }
         } else {
             throw new Error(data.error || t.formError);
         }
