@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
@@ -50,30 +50,14 @@ app.use(express.urlencoded({ extended: true }));
 // ── Static files ──────────────────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, 'PORTFOLIO_WEB')));
 
-// ── Nodemailer — SMTP Gmail (puerto 465 / SSL, más estable en cloud) ─────────
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_APP_PASSWORD
-  },
-  tls: { rejectUnauthorized: false },
-  connectionTimeout: 10000,
-  socketTimeout: 15000,
-  greetingTimeout: 10000
-});
+// ── Resend — email API sobre HTTPS (Railway bloquea SMTP, no HTTPS) ───────────
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Verificar conexión SMTP al arrancar
-transporter.verify((error) => {
-  if (error) {
-    console.error('⚠️  SMTP no disponible:', error.message);
-    console.error('   Verifica EMAIL_USER y EMAIL_APP_PASSWORD en las variables de entorno');
-  } else {
-    console.log('✅ SMTP listo — correos habilitados');
-  }
-});
+if (!process.env.RESEND_API_KEY) {
+  console.warn('⚠️  RESEND_API_KEY no configurado — emails deshabilitados');
+} else {
+  console.log('✅ Resend listo — correos habilitados');
+}
 
 // ── reCAPTCHA ─────────────────────────────────────────────────────────────────
 async function verifyRecaptcha(token) {
@@ -118,10 +102,10 @@ app.post('/api/contact', async (req, res) => {
       return res.status(400).json({ success: false, error: 'Verificación reCAPTCHA fallida' });
     }
 
-    await transporter.sendMail({
-      from: `"Portfolio — Juan Pablo" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      replyTo: email,
+    const { error: sendError } = await resend.emails.send({
+      from: 'Portfolio Juan Pablo <noreply@juanpablobautista.dev>',
+      to: [process.env.EMAIL_USER],
+      reply_to: email,
       subject: `[Portfolio] Mensaje de ${name}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
@@ -146,11 +130,13 @@ app.post('/api/contact', async (req, res) => {
             ${message.replace(/\n/g, '<br>')}
           </div>
           <p style="font-size:11px;color:#999;margin-top:24px">
-            Enviado desde el portfolio — porfolioweb-production.up.railway.app
+            Enviado desde el portfolio — juanpablobautista.dev
           </p>
         </div>
       `
     });
+
+    if (sendError) throw new Error(sendError.message);
 
     res.json({ success: true, message: 'Mensaje enviado correctamente' });
 
@@ -165,22 +151,12 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // ── GET /api/test — diagnóstico rápido ────────────────────────────────────────
-app.get('/api/test', async (req, res) => {
-  let smtpOk = false;
-  let smtpError = null;
-  try {
-    await transporter.verify();
-    smtpOk = true;
-  } catch (e) {
-    smtpError = e.message;
-  }
-
+app.get('/api/test', (req, res) => {
   res.json({
     status: 'Servidor funcionando',
     emailConfigured: !!process.env.EMAIL_USER,
     emailUser: process.env.EMAIL_USER || null,
-    smtpReady: smtpOk,
-    smtpError,
+    resendConfigured: !!process.env.RESEND_API_KEY,
     recaptchaConfigured: !!process.env.RECAPTCHA_SECRET_KEY
   });
 });
@@ -188,13 +164,13 @@ app.get('/api/test', async (req, res) => {
 // ── GET /api/test-email — envía un correo de prueba directo ──────────────────
 app.get('/api/test-email', async (req, res) => {
   try {
-    await transporter.sendMail({
-      from: `"Portfolio Test" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      replyTo: process.env.EMAIL_USER,
+    const { error } = await resend.emails.send({
+      from: 'Portfolio Test <noreply@juanpablobautista.dev>',
+      to: [process.env.EMAIL_USER],
       subject: '[Portfolio] Test de envío de correo',
       html: '<p>✅ El sistema de correo del portfolio funciona correctamente.</p>'
     });
+    if (error) throw new Error(error.message);
     res.json({ success: true, message: 'Email enviado a ' + process.env.EMAIL_USER });
   } catch (e) {
     res.status(500).json({ success: false, error: e.message });
@@ -210,7 +186,7 @@ app.get('*', (req, res) => {
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`\n🚀 Servidor en http://localhost:${PORT}`);
-  console.log(`   EMAIL_USER        : ${process.env.EMAIL_USER        || '⚠️  no configurado'}`);
-  console.log(`   EMAIL_APP_PASSWORD: ${process.env.EMAIL_APP_PASSWORD ? '✅ configurado' : '⚠️  no configurado'}`);
-  console.log(`   RECAPTCHA_SECRET  : ${process.env.RECAPTCHA_SECRET_KEY ? '✅ configurado' : '⚠️  no configurado'}`);
+  console.log(`   EMAIL_USER       : ${process.env.EMAIL_USER        || '⚠️  no configurado'}`);
+  console.log(`   RESEND_API_KEY   : ${process.env.RESEND_API_KEY    ? '✅ configurado' : '⚠️  no configurado'}`);
+  console.log(`   RECAPTCHA_SECRET : ${process.env.RECAPTCHA_SECRET_KEY ? '✅ configurado' : '⚠️  no configurado'}`);
 });
