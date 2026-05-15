@@ -30,7 +30,8 @@ const allowedOrigins = [
   'http://localhost:8080',   
   'https://porfolioweb-production.up.railway.app',
   'https://juanpablobautista.dev',
-  'https://www.juanpablobautista.dev'
+  'https://www.juanpablobautista.dev',
+  'https://porfolioweb-production.up.railway.app/',
 ];
 
 app.use(cors({
