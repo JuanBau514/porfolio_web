@@ -27,8 +27,10 @@ const allowedOrigins = [
   'http://127.0.0.1:5500',
   'http://localhost:3000',
   'http://127.0.0.1:3001',
-  'http://localhost:3001',
-  'https://porfolioweb-production.up.railway.app'
+  'http://localhost:8080',   
+  'https://porfolioweb-production.up.railway.app',
+  'https://juanpablobautista.dev',
+  'https://www.juanpablobautista.dev'
 ];
 
 app.use(cors({
@@ -47,16 +49,19 @@ app.use(express.urlencoded({ extended: true }));
 // ── Static files ──────────────────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, 'PORTFOLIO_WEB')));
 
-// ── Nodemailer — SMTP explícito (más confiable que service:'gmail') ────────────
+// ── Nodemailer — SMTP Gmail (puerto 465 / SSL, más estable en cloud) ─────────
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_APP_PASSWORD
   },
-  tls: { rejectUnauthorized: false }
+  tls: { rejectUnauthorized: false },
+  connectionTimeout: 10000,
+  socketTimeout: 15000,
+  greetingTimeout: 10000
 });
 
 // Verificar conexión SMTP al arrancar
