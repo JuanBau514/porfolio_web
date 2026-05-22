@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# AI search bots — allowed to index and cite
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Training-only crawlers — blocked (citation allowed, training not)
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://juanpablobautista.dev/sitemap.xml

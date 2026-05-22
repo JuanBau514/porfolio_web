@@ -1,0 +1,55 @@
+# Juan Pablo Bautista — Full Stack Developer & AI Engineer
+
+## About
+Juan Pablo Bautista is a Full Stack Developer and AI Engineer with 3+ years of experience building scalable digital products in real production environments across the US and LATAM. Based in Bogotá, Colombia. Available for remote roles.
+
+## Core Expertise
+- **Frontend**: React, Next.js, TypeScript, JavaScript, HTML/CSS
+- **Backend**: Node.js, Python, FastAPI, GraphQL, REST APIs, Express.js
+- **Databases**: PostgreSQL, MySQL, MongoDB, Prisma ORM
+- **AI & Automation**: Make.com, WhatsApp Cloud API, AI Agents (LLM-based), OpenAI API integrations
+- **Infrastructure**: Docker, Railway, AWS, CI/CD pipelines
+- **Other**: Prisma ORM, Git, Linux (Fedora), Supabase
+
+## Professional Experience
+- **Texo Digital** — Full Stack Developer (remote, US/Colombia)
+  Stack: React, Next.js, Node.js, GraphQL, PostgreSQL, Docker
+- **G4 Technologies** — Full Stack Developer (Bogotá, Colombia)
+  Stack: React, Node.js, FTP deployments
+- **Linktrust Works** — Full Stack Developer (remote, US)
+  Stack: React, Next.js, Node.js, Docker, Railway
+- **Aikonversa** — Automation & AI Consultant (freelance)
+  Stack: Make.com, WhatsApp Cloud API, TikTok Ads API, Respond.io, AI Agents
+
+## Education
+- Tecnología en Sistematización de Datos — Universidad Distrital Francisco José de Caldas, Bogotá, Colombia
+
+## Key Projects (12+ in portfolio)
+- Poke Focus — Pokémon memory game (HTML, JS, CSS, PokéAPI)
+- Veterinaria Java — Desktop veterinary management app (Java)
+- 2048 Mobile — Android game with Firebase leaderboard (Kotlin)
+- Homologaciones App — Academic process automation (React + Node.js)
+- Aikonversa — Agency website with WhatsApp chatbot (Next.js)
+- CLAICON — E-commerce for Colombian artisan accessories
+- IntegradoCGT — B2B document management platform (Guatemala)
+- ConexiónGT — Bilingual legal services platform (US-Guatemala)
+- TrueNorth — Residential construction website (South Carolina, US)
+
+## Services Offered
+- Full stack web application development
+- Enterprise automation workflows (Make.com, API integrations)
+- AI agent design and implementation
+- Backend architecture and API design
+- Remote consulting and freelance projects
+
+## Languages
+- Spanish (native)
+- English (professional)
+- Portuguese (basic)
+
+## Contact & Links
+- Website: https://juanpablobautista.dev
+- Email: jbautistaclavijo@gmail.com
+- GitHub: https://github.com/JuanBau514
+- LinkedIn: https://www.linkedin.com/in/juanpablobautistac/
+- Location: Bogotá, Colombia (open to remote work globally)
