@@ -72,7 +72,7 @@
     General
 ====================================== */
 
-body {font-family: 'Roboto', sans-serif; font-size: 18px;color: #ffffff;font-weight:300;line-height:25px;width: 100%; overflow-x: hidden}
+body {font-family: 'Roboto', sans-serif; font-size: 18px;color: #ffffff;font-weight:300;line-height:25px;width: 100%; overflow-x: hidden; background-color: #171717;}
 .h1, .h2, .h3, .h4, .h5, h1, h2, h3, h4, h5 {line-height: 1.2; font-weight: bold; font-family: 'Roboto', sans-serif, sans-serif;}
 .h1, h1 { font-size: 72px;}
 .h2, h2 { font-size: 48px;}
@@ -336,7 +336,7 @@ section{padding: 0;}
 .navbar-top-default{
     position: absolute;
     z-index: 99;
-    overflow: hidden;
+    overflow: visible;
     height: 100px;
     width: 100%;
     -webkit-transition: none;
@@ -464,6 +464,7 @@ section{padding: 0;}
     right: 28px;
     top: 25px;
 }
+
 
 .side-menu .side-nav .navbar-nav{
     text-align: center;
@@ -2101,8 +2102,24 @@ section{padding: 0;}
     }
 
     /* Slider */
+    .slider-area {
+        padding-top: 90px;
+        padding-bottom: 60px;
+        align-items: flex-start;
+    }
     .slider-area .slider-content {
-        margin-top: 30px;
+        margin-top: 0;
+    }
+    .slider-image {
+        top: 0;
+        margin: 32px auto 0 auto;
+        z-index: 0;
+    }
+    .slider-image img {
+        top: 0;
+    }
+    .custom-profile-img {
+        max-width: 200px;
     }
     .content-para {
         padding: 0 10px;
@@ -2111,6 +2128,9 @@ section{padding: 0;}
     }
     .image-order {
         order: 2;
+    }
+    .hero-social-links {
+        justify-content: center;
     }
     .animated-circle {
         display: none;
@@ -2143,6 +2163,17 @@ section{padding: 0;}
     /* Portfolio */
     .portfolio-content {
         text-align: center;
+        background-color: #171717;
+        padding: 12px 0 20px;
+    }
+    .portfolio-content p {
+        font-size: 13px;
+        line-height: 1.5;
+        padding: 0 8px;
+        color: #ffffff;
+    }
+    .owl-item, .team-data-img {
+        background-color: #171717;
     }
     .circle {
         display: none;

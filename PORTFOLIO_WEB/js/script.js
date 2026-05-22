@@ -172,19 +172,24 @@ jQuery(function ($) {
         smartSpeed:500,
         navSpeed: true,
         autoplayHoverPause:true,
+        autoHeight: false,
         responsiveClass:true,
         responsive: {
             992: {
-                items: 3
+                items: 3,
+                autoHeight: false
             },
             600: {
-                items: 2
+                items: 2,
+                autoHeight: false
             },
             320: {
-                items: 1
+                items: 1,
+                autoHeight: true
             },
             280: {
-                items: 1
+                items: 1,
+                autoHeight: true
             }
         }
     });

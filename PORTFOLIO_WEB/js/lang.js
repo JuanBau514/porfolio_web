@@ -500,7 +500,7 @@ function setLanguage(lang, initialLoad = false) {
   }
 
   // 3. Actualizar el botón de idioma activo
-  const flag = {'es': '🇪🇸', 'en': '🇺🇸', 'pt': '🇧🇷'};
+  const flag = {'es': '🇨🇴', 'en': '🇺🇸', 'pt': '🇧🇷'};
   const activeLangButton = document.getElementById('active-language');
   if (activeLangButton) {
     activeLangButton.textContent = flag[lang] || '🌐';
@@ -723,7 +723,7 @@ let _resolveToken = null;
 
 window.initRecaptcha = function () {
     _recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
-        sitekey: '6Leu9lgrAAAAAI17GnxuLsMhfwpZORVElo-DPkHv',
+        sitekey: '6LdOwvYsAAAAAF8IHkIQhEP7584T0LSFBfDMVzDX',
         size: 'invisible',
         callback: function (token) {
             if (_resolveToken) _resolveToken(token);

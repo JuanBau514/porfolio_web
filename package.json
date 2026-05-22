@@ -11,14 +11,6 @@
     "express-rate-limit": "^6.8.1",
     "helmet": "^7.1.0",
     "node-fetch": "^2.6.7",
-    "path-to-regexp": "^6.3.0",
-    "resend": "^6.12.3",
-    "router": "^2.2.0"
-  },
-  "devDependencies": {
-    "npm-force-resolutions": "^0.0.10"
-  },
-  "resolutions": {
-    "path-to-regexp": "6.2.1"
+    "nodemailer": "^8.0.7"
   }
 }
